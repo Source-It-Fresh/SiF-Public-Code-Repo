@@ -4,5 +4,5 @@
 # Specific directories or files
 # /docs/ @SiF-Petri @nonick777
 # /src/ @SiF-Petri @nonick777
-*.md @sif-admin-team
-*.js @sif-maintain-team
+# *.md @sif-admin-team
+# *.js @sif-maintain-team
