@@ -24,4 +24,27 @@ Build on **DRY - TDD - SOLID; Principals** for, Non-repetitive, Test covered Cod
 * **Fix** confirmed known **bugs before** adding **feature** improvements.
 * **Immediately** add tests for **prod bugs** once reproduced and **fixed**.
 
-Note: see https://sourceitfresh.org/en/contributors to join the team.
+## OPEN Pillars (_**https://backyourstack.com/**_)
+We believe that 'Transparency creates trust'  and as such our open 'sourced' community is ...driven by / stands on / based appon the following open pillars.
+| Pillar(s)  | OPEN veriant                             |
+|------------|------------------------------------------|
+| OPEN-Source Licence:        | gnu agplv3              |
+| OPEN Licence Specification: | [SPDX](https://spdx.org/licenses/) |
+| PUBLIC Repo:                | [Open-Source](https://github.com/Source-It-Fresh/SiF-Public-Code-Repo) |
+| Admin:                      | [OpenOffice](https://www.openoffice.org/) |
+|	Code Structure:	            | Open Standards          |
+| Webservices:                | [Open-API (Swager)](https://swagger.io/resources/open-api/) |
+| Auth:                       | Open-Identity           |
+| Protocol:                   | Open xml                |
+| UI                          | [Open Material Design*](https://m3.material.io/) |
+| Blockchain                  | [Open Network, The (TON)](https://ton.org/) |
+|	Donations:	                | [Open Collective](https://opencollective.com/sourceitfresh) |
+|	Dev:		                    | [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/) |
+
+<br>
+
+---
+
+:scroll: **SiF** is **licensed** under [_**Copyleft GNU Affero General Public License v3.0**_](https://www.gnu.org/licenses/agpl-3.0.en.html). <br>
+:email: **Email:** Comments, edit suggestions, and input can be communicated to our team through [**_paper@sourceitfresh.org_**](mailto:paper@sourceitfresh.org?subject=SIF%20Paper%20Feedback). <br>
+:handshake: **Note:** See _**https://sourceitfresh.org/en/contributors**_ to join the team. <br>
