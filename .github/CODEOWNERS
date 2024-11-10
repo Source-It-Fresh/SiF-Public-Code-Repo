@@ -1,8 +1,10 @@
 # All files
 * @SiF-Petri
 
-# Specific directories or files
-# /docs/ @SiF-Petri @nonick777
-# /src/ @SiF-Petri @nonick777
-# *.md @sif-admin-team
-# *.js @sif-maintain-team
+# Specific directories
+/src/ @SiF-Petri @nonick777
+/docs/ @SiF-Guy @SiF-Petri
+
+# Specific files or FileTypes
+*.md @SiF-Guy @sif-admin-team
+*.js @sif-maintain-team
