@@ -2,7 +2,7 @@
 Source-It-Fresh Public-Code-Repo.
 
 Typically lags 1 major release version behind the Internal-Private Main-Repo.
-Please contact us via 'https://sourceitfresh.org/en/contributors' or email:'paper@sourceitfresh.com'.
+Please contact us via 'https://sourceitfresh.org/en/people-needed' or email:'paper@sourceitfresh.com'.
 
 ## Overview of Dev Vision :
 Everything is designed from the ground up with the end-users’ daily tasks in mind. We’re ultimately in the business of helping people reach their goals with minimal effort, planning to reuse the wheel wherever possible. By utilising community-built, distributable code objects we can, as close as possible, give a free-for-everyone forever experience, with actively maintained peer-reviewed subsystems.
