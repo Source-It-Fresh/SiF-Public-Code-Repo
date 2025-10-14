@@ -1,0 +1,54 @@
+{
+    "profiles": {
+        "Docker Compose - All APIs": {
+            "commandName": "DockerCompose",
+            "commandVersion": "1.0",
+            "composeLaunchAction": "LaunchBrowser",
+            "composeLaunchServiceName": "sif_appdata_api",
+            "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}/swagger",
+            "serviceActions": {
+                "sif_appdata_api": "StartDebugging",
+                "SIF_SQLDB_Container": "StartWithoutDebugging",
+                "sif_base_discover_api": "StartDebugging",
+                "sif_base_learn_api": "StartDebugging",
+                "sif_configure_addins_api": "StartDebugging",
+                "sif_configure_paidservices_api": "StartDebugging",
+                "sif_configure_settings_api": "StartDebugging",
+                "sif_manage_commodities_api": "StartDebugging",
+                "sif_manage_farm_api": "StartDebugging",
+                "sif_manageorg_accounts_api": "StartDebugging",
+                "sif_manageorg_actionlogs_api": "StartDebugging",
+                "sif_manageorg_traderentity_api": "StartDebugging",
+                "sif_market_consumer_api": "StartDebugging",
+                "sif_market_vendor_api": "StartDebugging",
+                "sif_aspnetcore_mvc_webapp": "DoNotStart",
+                "sif_aspnetcore_razor_webapp": "DoNotStart"
+            }
+        },
+        "WEB_APP - UI": {
+            "commandName": "DockerCompose",
+            "commandVersion": "1.0",
+            "composeLaunchAction": "LaunchBrowser",
+            "composeLaunchServiceName": "sif_aspnetcore_razor_webapp",
+            "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}",
+            "serviceActions": {
+                "sif_appdata_api": "DoNotStart",
+                "SIF_SQLDB_Container": "StartWithoutDebugging",
+                "sif_base_discover_api": "DoNotStart",
+                "sif_base_learn_api": "DoNotStart",
+                "sif_configure_addins_api": "DoNotStart",
+                "sif_configure_paidservices_api": "DoNotStart",
+                "sif_configure_settings_api": "DoNotStart",
+                "sif_manage_commodities_api": "DoNotStart",
+                "sif_manage_farm_api": "DoNotStart",
+                "sif_manageorg_accounts_api": "DoNotStart",
+                "sif_manageorg_actionlogs_api": "DoNotStart",
+                "sif_manageorg_traderentity_api": "DoNotStart",
+                "sif_market_consumer_api": "DoNotStart",
+                "sif_market_vendor_api": "DoNotStart",
+                "sif_aspnetcore_mvc_webapp": "StartDebugging",
+                "sif_aspnetcore_razor_webapp": "StartDebugging"
+            }
+        }
+    }
+}

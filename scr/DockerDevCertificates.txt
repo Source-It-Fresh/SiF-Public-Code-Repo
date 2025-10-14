@@ -1,0 +1,145 @@
+### Local UserSecrets Dir ###
+### %APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json
+### C:\Users\<user>\AppData\Roaming\Microsoft\UserSecrets\
+
+### Local Dev Certificates ###
+### %APPDATA%\ASP.NET\Https\<ProjectName>.pfx
+### C:\Users\<user>\AppData\ASP.NET\Https
+
+
+
+### Setup Secure Docker Certificates ###
+# dotnet dev-certs https --clean
+
+dotnet dev-certs https --trust
+
+
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_ASPNetCore_MVC_WebApp.pfx -p crypticpassword
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_ASPNetCore_Razor_WebApp.pfx -p crypticpassword
+
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Blazor_PWA_App.pfx -p crypticpassword
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Blazor_WASM_App.pfx -p crypticpassword
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Blazor_Server_App.pfx -p crypticpassword
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Blazor_Web_App.pfx -p crypticpassword
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Blazor_Web_App.Client.Server.pfx -p crypticpassword
+
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_MAUI_App.pfx -p crypticpassword
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_MAUI_Blazor.pfx -p crypticpassword
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_MAUI_Hybrid.pfx -p crypticpassword
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_MAUI_Multi.pfx -p crypticpassword
+
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Main_Solution.AppHost.pfx -p crypticpassword
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Aspire_Blazor_App.Web.pfx -p crypticpassword
+
+
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_ASPNetCore_Helper_WebAPI.pfx -p crypticpassword
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_AppData_API.pfx -p P@55w0rd!
+
+
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Base_Discover_API.pfx -p P@55w0rd!
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Base_Learn_API.pfx -p P@55w0rd!
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Configure_AddIns_API.pfx -p P@55w0rd!
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Configure_PaidServices_API.pfx -p P@55w0rd!
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Configure_Settings_API.pfx -p P@55w0rd!
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SIF_Core_Help_API.pfx -p P@55w0rd!
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SIF_Core_Identity_API.pfx -p P@55w0rd!
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SIF_Core_Login_API.pfx -p P@55w0rd!
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Manage_Commodities_API.pfx -p P@55w0rd!
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Manage_Farm_API.pfx -p P@55w0rd!
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_ManageOrg_Accounts_API.pfx -p P@55w0rd!
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_ManageOrg_ActionLogs_API.pfx -p P@55w0rd!
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_ManageOrg_TraderEntity_API.pfx -p P@55w0rd!
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Market_Consumer_API.pfx -p P@55w0rd!
+dotnet dev-certs https -ep $env:USERPROFILE\AppData\Roaming\ASP.NET\Https\SiF_Market_Vendor_API.pfx -p P@55w0rd!
+
+dotnet dev-certs https --check
+
+
+
+### Setup Local User Secrets Configs ###
+#>>># 'cd' to 'Source_It_Fresh_Main\SIF_Main_Solution'
+
+dotnet user-secrets -p Classic\Apps\SiF_ASPNetCore_MVC_WebApp\SiF_ASPNetCore_MVC_WebApp.csproj set "Kestrel:Certificates:Development:Password" "crypticpassword"
+dotnet user-secrets -p Classic\Apps\SiF_ASPNetCore_MVC_WebApp\SiF_ASPNetCore_MVC_WebApp.csproj set "Kestrel:Certificates:Staging:Password" "crypticpassword"
+dotnet user-secrets -p Classic\Apps\SiF_ASPNetCore_Razor_WebApp\SiF_ASPNetCore_Razor_WebApp.csproj set "Kestrel:Certificates:Development:Password" "crypticpassword"
+dotnet user-secrets -p Classic\Apps\SiF_ASPNetCore_Razor_WebApp\SiF_ASPNetCore_Razor_WebApp.csproj set "Kestrel:Certificates:Staging:Password" "crypticpassword"
+
+dotnet user-secrets -p Blazor\Apps\SiF_Blazor_PWA_App\SiF_Blazor_PWA_App.csproj set "Kestrel:Certificates:Development:Password" "crypticpassword"
+dotnet user-secrets -p Blazor\Apps\SiF_Blazor_PWA_App\SiF_Blazor_PWA_App.csproj set "Kestrel:Certificates:Staging:Password" "crypticpassword"
+dotnet user-secrets -p Blazor\Apps\SiF_Blazor_WASM_App\SiF_Blazor_WASM_App.csproj set "Kestrel:Certificates:Development:Password" "crypticpassword"
+dotnet user-secrets -p Blazor\Apps\SiF_Blazor_WASM_App\SiF_Blazor_WASM_App.csproj set "Kestrel:Certificates:Staging:Password" "crypticpassword"
+dotnet user-secrets -p Blazor\Apps\SiF_Blazor_Server_App\SiF_Blazor_Server_App.csproj set "Kestrel:Certificates:Development:Password" "crypticpassword"
+dotnet user-secrets -p Blazor\Apps\SiF_Blazor_Server_App\SiF_Blazor_Server_App.csproj set "Kestrel:Certificates:Staging:Password" "crypticpassword"
+dotnet user-secrets -p Blazor\Apps\SiF_Blazor_Web_App\SiF_Blazor_Web_App\SiF_Blazor_Web_App.csproj set "Kestrel:Certificates:Development:Password" "crypticpassword"
+dotnet user-secrets -p Blazor\Apps\SiF_Blazor_Web_App\SiF_Blazor_Web_App\SiF_Blazor_Web_App.csproj set "Kestrel:Certificates:Staging:Password" "crypticpassword"
+dotnet user-secrets -p Blazor\Apps\SiF_Blazor_Web_App\SiF_Blazor_Web_App.Client\SiF_Blazor_Web_App.Client.csproj set "Kestrel:Certificates:Development:Password" "crypticpassword"
+dotnet user-secrets -p Blazor\Apps\SiF_Blazor_Web_App\SiF_Blazor_Web_App.Client\SiF_Blazor_Web_App.Client.csproj set "Kestrel:Certificates:Staging:Password" "crypticpassword"
+
+dotnet user-secrets -p MAUI\Apps\SiF_MAUI_App\SiF_MAUI_App.csproj set "Kestrel:Certificates:Development:Password" "crypticpassword"
+dotnet user-secrets -p MAUI\Apps\SiF_MAUI_App\SiF_MAUI_App.csproj set "Kestrel:Certificates:Staging:Password" "crypticpassword"
+dotnet user-secrets -p MAUI\Apps\SiF_MAUI_Blazor\SiF_MAUI_Blazor.csproj set "Kestrel:Certificates:Development:Password" "crypticpassword"
+dotnet user-secrets -p MAUI\Apps\SiF_MAUI_Blazor\SiF_MAUI_Blazor.csproj set "Kestrel:Certificates:Staging:Password" "crypticpassword"
+dotnet user-secrets -p MAUI\Apps\SiF_MAUI_Hybrid\SiF_MAUI_Hybrid\SiF_MAUI_Hybrid.csproj set "Kestrel:Certificates:Development:Password" "crypticpassword"
+dotnet user-secrets -p MAUI\Apps\SiF_MAUI_Hybrid\SiF_MAUI_Hybrid\SiF_MAUI_Hybrid.csproj set "Kestrel:Certificates:Staging:Password" "crypticpassword"
+dotnet user-secrets -p MAUI\Apps\SiF_MAUI_Multi_App\SiF_MAUI_Multi\SiF_MAUI_Multi\SiF_MAUI_Multi.csproj set "Kestrel:Certificates:Development:Password" "crypticpassword"
+dotnet user-secrets -p MAUI\Apps\SiF_MAUI_Multi_App\SiF_MAUI_Multi\SiF_MAUI_Multi\SiF_MAUI_Multi.csproj set "Kestrel:Certificates:Staging:Password" "crypticpassword"
+
+dotnet user-secrets -p SiF_Main_Solution.AppHost.csproj set "Kestrel:Certificates:Development:Password" "crypticpassword"
+dotnet user-secrets -p SiF_Main_Solution.AppHost.csproj set "Kestrel:Certificates:Staging:Password" "crypticpassword"
+dotnet user-secrets -p CloudNative\Aspire\SiF_Aspire_Blazor_App\SiF_Aspire_Blazor_App.Web\SiF_Aspire_Blazor_App.Web.csproj set "Kestrel:Certificates:Development:Password" "crypticpassword"
+dotnet user-secrets -p CloudNative\Aspire\SiF_Aspire_Blazor_App\SiF_Aspire_Blazor_App.Web\SiF_Aspire_Blazor_App.Web.csproj set "Kestrel:Certificates:Staging:Password" "crypticpassword"
+
+
+dotnet user-secrets -p Common\APIs\SiF_ASPNetCore_Helper_WebAPI\SiF_ASPNetCore_Helper_WebAPI.csproj set "Kestrel:Certificates:Development:Password" "crypticpassword"
+dotnet user-secrets -p Common\APIs\SiF_ASPNetCore_Helper_WebAPI\SiF_ASPNetCore_Helper_WebAPI.csproj set "Kestrel:Certificates:Staging:Password" "crypticpassword"
+
+dotnet user-secrets -p Other\SiF_AppData_API\SiF_AppData_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Other\SiF_AppData_API\SiF_AppData_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
+
+
+
+dotnet user-secrets -p Modules\Base\Discover\SiF_Base_Discover_API\SiF_Base_Discover_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Modules\Base\Discover\SiF_Base_Discover_API\SiF_Base_Discover_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
+
+dotnet user-secrets -p Modules\Base\Learn\SiF_Base_Learn_API\SiF_Base_Learn_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Modules\Base\Learn\SiF_Base_Learn_API\SiF_Base_Learn_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
+
+dotnet user-secrets -p Modules\Configure\AddIns\SiF_Configure_AddIns_API\SiF_Configure_AddIns_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Modules\Configure\AddIns\SiF_Configure_AddIns_API\SiF_Configure_AddIns_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
+
+
+dotnet user-secrets -p Main\Modules\Configure_PaidServices\SiF_Configure_PaidServices_API\SiF_Configure_PaidServices_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Main\Modules\Configure_PaidServices\SiF_Configure_PaidServices_API\SiF_Configure_PaidServices_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
+
+dotnet user-secrets -p Main\Modules\Configure_Settings\SiF_Configure_Settings_API\SiF_Configure_Settings_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Main\Modules\Configure_Settings\SiF_Configure_Settings_API\SiF_Configure_Settings_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
+
+dotnet user-secrets -p Main\Modules\Core_Help\SIF_Core_Help_API\SIF_Core_Help_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Main\Modules\Core_Help\SIF_Core_Help_API\SIF_Core_Help_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
+
+dotnet user-secrets -p Main\Modules\Core_Identity\SIF_Core_Identity_API\SIF_Core_Identity_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Main\Modules\Core_Identity\SIF_Core_Identity_API\SIF_Core_Identity_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
+
+dotnet user-secrets -p Main\Modules\Core_Login\SIF_Core_Login_API\SIF_Core_Login_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Main\Modules\Core_Login\SIF_Core_Login_API\SIF_Core_Login_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
+
+dotnet user-secrets -p Main\Modules\Manage_Commodities\SiF_Manage_Commodities_API\SiF_Manage_Commodities_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Main\Modules\Manage_Commodities\SiF_Manage_Commodities_API\SiF_Manage_Commodities_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
+
+dotnet user-secrets -p Main\Modules\Manage_Farm\SiF_Manage_Farm_API\SiF_Manage_Farm_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Main\Modules\Manage_Farm\SiF_Manage_Farm_API\SiF_Manage_Farm_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
+
+dotnet user-secrets -p Main\Modules\ManageOrg_Accounts\SiF_ManageOrg_Accounts_API\SiF_ManageOrg_Accounts_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Main\Modules\ManageOrg_Accounts\SiF_ManageOrg_Accounts_API\SiF_ManageOrg_Accounts_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
+
+dotnet user-secrets -p Main\Modules\ManageOrg_ActionLogs\SiF_ManageOrg_ActionLogs_API\SiF_ManageOrg_ActionLogs_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Main\Modules\ManageOrg_ActionLogs\SiF_ManageOrg_ActionLogs_API\SiF_ManageOrg_ActionLogs_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
+
+dotnet user-secrets -p Main\Modules\ManageOrg_TraderEntity\SiF_ManageOrg_TraderEntity_API\SiF_ManageOrg_TraderEntity_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Main\Modules\ManageOrg_TraderEntity\SiF_ManageOrg_TraderEntity_API\SiF_ManageOrg_TraderEntity_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
+
+dotnet user-secrets -p Main\Modules\Market_Consumer\SiF_Market_Consumer_API\SiF_Market_Consumer_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Main\Modules\Market_Consumer\SiF_Market_Consumer_API\SiF_Market_Consumer_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
+
+dotnet user-secrets -p Main\Modules\Market_Vendor\SiF_Market_Vendor_API\SiF_Market_Vendor_API.csproj set "Kestrel:Certificates:Development:Password" "P@55w0rd!"
+dotnet user-secrets -p Main\Modules\Market_Vendor\SiF_Market_Vendor_API\SiF_Market_Vendor_API.csproj set "Kestrel:Certificates:Staging:Password" "P@55w0rd!"
