@@ -1,6 +1,6 @@
 ### ToDo: Add SQL contrainer with migrations and trefldata seed
 # docker pull mcr.microsoft.com/mssql/server:2022-latest
-# docker run -e "ACCEPT_EULA=Y"-e "SA_PASSWORD="${SA_PASSWORD} --name SIF_SQLDB_Container --hostname sif_sqldb_container -p 1444:1433 -v SIF_MSSQL_Volume:/var/opt/mssql -d mcr.microsoft.com/mssql/server
+# docker run -e "ACCEPT_EULA=Y"-e "SA_PASSWORD=Mult!c@st" --name SIF_SQLDB_Container --hostname sif_sqldb_container -p 1444:1433 -v SIF_MSSQL_Volume:/var/opt/mssql -d mcr.microsoft.com/mssql/server
 
 ### Browse host volume location in file explorer:
 #InWindownsExploere# \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\

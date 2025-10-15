@@ -1,6 +1,0 @@
-@SiF_AppData_API_HostAddress = https://localhost:7021
-
-GET {{SiF_AppData_API_HostAddress}}/weatherforecast1/
-Accept: application/json
-
-###
