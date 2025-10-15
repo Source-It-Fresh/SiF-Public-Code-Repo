@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>SiF_Database_Project</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{1bfc862c-1464-4dd9-b13a-d73ba8cda557}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>SiF_Database_Project</RootNamespace>
+    <AssemblyName>SiF_Database_Project</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="trd\" />
+    <Folder Include="trd\Tables\" />
+    <Folder Include="sec\" />
+    <Folder Include="sec\Tables\" />
+    <Folder Include="plt\" />
+    <Folder Include="plt\Tables\" />
+    <Folder Include="mar\" />
+    <Folder Include="mar\Tables\" />
+    <Folder Include="log\" />
+    <Folder Include="log\Tables\" />
+    <Folder Include="frm\" />
+    <Folder Include="frm\Tables\" />
+    <Folder Include="cmd\" />
+    <Folder Include="cmd\Tables\" />
+    <Folder Include="acc\" />
+    <Folder Include="acc\Tables\" />
+    <Folder Include="Security\" />
+    <Folder Include="acc\Deployment Scripts" />
+    <Folder Include="cmd\Deployment Scripts" />
+    <Folder Include="dbo\Deployment Scripts" />
+    <Folder Include="frm\Deployment Scripts" />
+    <Folder Include="log\Stored Procedures" />
+    <Folder Include="mar\Deployment Scripts" />
+    <Folder Include="plt\Deployment Scripts" />
+    <Folder Include="sec\Stored Procedures" />
+    <Folder Include="trd\Deployment Scripts" />
+    <Folder Include="Upgrade Scripts" />
+    <Folder Include="trd\Stored Procedures" />
+    <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="acc\Stored Procedures" />
+    <Folder Include="acc\Functions" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Security\_Need2MoveAll.txt" />
+    <None Include="Upgrade Scripts\Script.PostDeployment0.TrefleData.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\ZoneSetupType.sql" />
+    <Build Include="dbo\Tables\ZoneClimateType.sql" />
+    <Build Include="dbo\Tables\ZoneClassification.sql" />
+    <Build Include="dbo\Tables\TrefleData.sql" />
+    <Build Include="dbo\Tables\TraderType.sql" />
+    <Build Include="dbo\Tables\SystemParameter.sql" />
+    <Build Include="dbo\Tables\PaymentType.sql" />
+    <Build Include="dbo\Tables\PaidService.sql" />
+    <Build Include="dbo\Tables\OrderStatus.sql" />
+    <Build Include="dbo\Tables\MunicipalityDetail.sql" />
+    <Build Include="dbo\Tables\GrowSpaceType.sql" />
+    <Build Include="dbo\Tables\GrowSpaceLightSourceType.sql" />
+    <Build Include="dbo\Tables\GrowSpaceDataEntryType.sql" />
+    <Build Include="dbo\Tables\GrowMediumType.sql" />
+    <Build Include="dbo\Tables\GrowMediumDetail.sql" />
+    <Build Include="dbo\Tables\FeedbackType.sql" />
+    <Build Include="dbo\Tables\FeedbackCategory.sql" />
+    <Build Include="dbo\Tables\FarmCulture.sql" />
+    <Build Include="dbo\Tables\FarmAgriculture.sql" />
+    <Build Include="dbo\Tables\DeliveryMethod.sql" />
+    <Build Include="dbo\Tables\CurrencyISO4217.sql" />
+    <Build Include="dbo\Tables\CropLifeCycleStage.sql" />
+    <Build Include="dbo\Tables\__EFMigrationsHistory.sql" />
+    <Build Include="trd\Tables\TraderEntity.sql" />
+    <Build Include="trd\Tables\TraderLocation.sql" />
+    <Build Include="trd\Tables\TraderContactDetail.sql" />
+    <Build Include="sec\Tables\SecurityGroup.sql" />
+    <Build Include="sec\Tables\ApplicationSection.sql" />
+    <Build Include="plt\Tables\Genus_Plant.sql" />
+    <Build Include="plt\Tables\Family_Genus.sql" />
+    <Build Include="plt\Tables\DivisionOrder_Family.sql" />
+    <Build Include="plt\Tables\DivisionClass_DivisionOrder.sql" />
+    <Build Include="plt\Tables\Division_DivisionClass.sql" />
+    <Build Include="plt\Tables\SubKingdom.sql" />
+    <Build Include="plt\Tables\Species.sql" />
+    <Build Include="plt\Tables\Plant.sql" />
+    <Build Include="plt\Tables\Kingdom.sql" />
+    <Build Include="plt\Tables\Genus.sql" />
+    <Build Include="plt\Tables\Family.sql" />
+    <Build Include="plt\Tables\DivisionOrder.sql" />
+    <Build Include="plt\Tables\DivisionClass.sql" />
+    <Build Include="plt\Tables\Division.sql" />
+    <Build Include="plt\Tables\SubKingdom_Division.sql" />
+    <Build Include="plt\Tables\Kingdom_SubKingdom.sql" />
+    <Build Include="plt\Tables\Plant_Species.sql" />
+    <Build Include="mar\Tables\Logistic.sql" />
+    <Build Include="mar\Tables\Payment.sql" />
+    <Build Include="mar\Tables\Wishlist.sql" />
+    <Build Include="mar\Tables\Stock.sql" />
+    <Build Include="mar\Tables\Order.sql" />
+    <Build Include="mar\Tables\Credit.sql" />
+    <Build Include="mar\Tables\OrderProduct.sql" />
+    <Build Include="log\Tables\Feedback.sql" />
+    <Build Include="log\Tables\FeedbackMetadata.sql" />
+    <Build Include="log\Tables\ActionHistory.sql" />
+    <Build Include="log\Tables\Response.sql" />
+    <Build Include="frm\Tables\GrowSpace.sql" />
+    <Build Include="frm\Tables\Zone.sql" />
+    <Build Include="frm\Tables\Farm.sql" />
+    <Build Include="frm\Tables\SubArea.sql" />
+    <Build Include="cmd\Tables\AvailabilitySchedule.sql" />
+    <Build Include="cmd\Tables\Permit.sql" />
+    <Build Include="cmd\Tables\PaymentMethod.sql" />
+    <Build Include="cmd\Tables\Packaging.sql" />
+    <Build Include="cmd\Tables\DeliveryConfig.sql" />
+    <Build Include="cmd\Tables\Commodity.sql" />
+    <Build Include="cmd\Tables\Product.sql" />
+    <Build Include="cmd\Tables\Consumable.sql" />
+    <Build Include="acc\Tables\User_SecurityGroup.sql" />
+    <Build Include="acc\Tables\User_TraderEntity.sql" />
+    <Build Include="acc\Tables\SIF_User.sql" />
+    <Build Include="acc\Tables\SIF_Role.sql" />
+    <Build Include="acc\Tables\SIF_RoleClaim.sql" />
+    <Build Include="acc\Tables\SIF_UserClaim.sql" />
+    <Build Include="acc\Tables\SIF_UserLogin.sql" />
+    <Build Include="acc\Tables\SIF_UserRole.sql" />
+    <Build Include="acc\Tables\SIF_UserToken.sql" />
+    <Build Include="acc\Tables\TraderEntitySettingsDatum.sql" />
+    <Build Include="log\Stored Procedures\GetActionHistoryByTraderEntityId.sql" />
+    <Build Include="log\Stored Procedures\GetActionHistoryByUserId.sql" />
+    <Build Include="log\Stored Procedures\GetAllNewFeedback.sql" />
+    <Build Include="log\Stored Procedures\GetFeedbackById.sql" />
+    <Build Include="log\Stored Procedures\GetFeedbackByUserId.sql" />
+    <Build Include="log\Stored Procedures\GetFeedbackMetadataByFeedbackId.sql" />
+    <Build Include="log\Stored Procedures\GetFeedbackMetadataById.sql" />
+    <Build Include="log\Stored Procedures\GetResponseByFeedbackId.sql" />
+    <Build Include="log\Stored Procedures\GetResponseById.sql" />
+    <Build Include="log\Stored Procedures\InsertFeedbackWithMetadata.sql" />
+    <Build Include="log\Stored Procedures\InsertResponse.sql" />
+    <Build Include="sec\Stored Procedures\DeleteFullSecurityGroupById.sql" />
+    <Build Include="sec\Stored Procedures\GetAllFromApplicationSection.sql" />
+    <Build Include="sec\Stored Procedures\GetPermissionDetailById.sql" />
+    <Build Include="sec\Stored Procedures\GetSecurityGroupById.sql" />
+    <Build Include="sec\Stored Procedures\InsertSecurityGroupBase.sql" />
+    <Build Include="sec\Stored Procedures\UpdatePermissionDetail.sql" />
+    <Build Include="sec\Stored Procedures\UpdateSecurityGroup.sql" />
+    <Build Include="Upgrade Scripts\_Move_TrefleData_.sql" />
+    <Build Include="Upgrade Scripts\Script.PostDeployment1.Plants.sql" />
+    <Build Include="Upgrade Scripts\Script.PostDeployment2.App.sql" />
+    <Build Include="Upgrade Scripts\Script.PostDeployment3.Sec.sql" />
+    <Build Include="trd\Stored Procedures\DeleteFullTraderEntityById.sql" />
+    <Build Include="trd\Stored Procedures\GetTraderContactDetailById.sql" />
+    <Build Include="trd\Stored Procedures\GetTraderEntityById.sql" />
+    <Build Include="trd\Stored Procedures\GetTraderLocationById.sql" />
+    <Build Include="trd\Stored Procedures\InsertFullTraderEntity.sql" />
+    <Build Include="trd\Stored Procedures\UpdateTraderContactDetail.sql" />
+    <Build Include="trd\Stored Procedures\UpdateTraderEntity.sql" />
+    <Build Include="trd\Stored Procedures\UpdateTraderLocation.sql" />
+    <Build Include="trd\Tables\_ToDo_Goods.sql" />
+    <Build Include="trd\Tables\_ToDo_Services.sql" />
+    <Build Include="Security\ApplicationRole_SourceItFresh.sql" />
+    <Build Include="Security\Permissions.sql" />
+    <Build Include="Security\Role_StoredProcedureRole.sql" />
+    <Build Include="Security\Schema_log.sql" />
+    <Build Include="Security\User_AdminAccount.sql" />
+    <Build Include="sec\Tables\PermissionDetail.sql" />
+    <Build Include="log\Tables\GrowSpaceDatum.sql" />
+    <Build Include="log\Tables\SubAreaWaterDatum.sql" />
+    <Build Include="log\Tables\SubAreaStatusDatum.sql" />
+    <Build Include="log\Tables\SubAreaPlantfoodDatum.sql" />
+    <Build Include="log\Tables\SubAreaHarvestDatum.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllFromAuthenticationProvider.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllFromFeedbackCategory.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllFromFeedbackType.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllFromMunicipalityDetail.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllFromSystemParameter.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllFromTraderType.sql" />
+    <Build Include="dbo\Stored Procedures\RethrowError.sql" />
+    <Build Include="dbo\Tables\GrowSpaceSetupType.sql" />
+    <Build Include="acc\Stored Procedures\DeleteUserById.sql" />
+    <Build Include="acc\Stored Procedures\DeleteUserInfoFacebookById.sql" />
+    <Build Include="acc\Stored Procedures\DeleteUserInfoGoogleById.sql" />
+    <Build Include="acc\Stored Procedures\DeleteUserInfoMicrosoftById.sql" />
+    <Build Include="acc\Stored Procedures\DeleteUserSecurityGroupRelationshipBySecurityGroupId.sql" />
+    <Build Include="acc\Stored Procedures\DeleteUserSecurityGroupRelationshipByUserId.sql" />
+    <Build Include="acc\Stored Procedures\DeleteUserTraderEntityRelationshipByTraderId.sql" />
+    <Build Include="acc\Stored Procedures\DeleteUserTraderEntityRelationshipByUserId.sql" />
+    <Build Include="acc\Stored Procedures\GetUserById.sql" />
+    <Build Include="acc\Stored Procedures\GetUserInfoFacebookById.sql" />
+    <Build Include="acc\Stored Procedures\GetUserInfoGoogleById.sql" />
+    <Build Include="acc\Stored Procedures\GetUserInfoMicrosoftById.sql" />
+    <Build Include="acc\Stored Procedures\GetUserSecurityGroupRelationshipBySecurityGroupId.sql" />
+    <Build Include="acc\Stored Procedures\GetUserSecurityGroupRelationshipByUserId.sql" />
+    <Build Include="acc\Stored Procedures\GetUserTraderEntityRelationshipByTraderId.sql" />
+    <Build Include="acc\Stored Procedures\GetUserTraderEntityRelationshipByUserId.sql" />
+    <Build Include="acc\Stored Procedures\InsertUser.sql" />
+    <Build Include="acc\Stored Procedures\InsertUserInfoFacebook.sql" />
+    <Build Include="acc\Stored Procedures\InsertUserInfoGoogle.sql" />
+    <Build Include="acc\Stored Procedures\InsertUserInfoMicrosoft.sql" />
+    <Build Include="acc\Stored Procedures\InsertUserSecurityGroupRelationship.sql" />
+    <Build Include="acc\Stored Procedures\InsertUserTraderEntityRelationship.sql" />
+    <Build Include="acc\Stored Procedures\UpdateUser.sql" />
+    <Build Include="acc\Stored Procedures\UpdateUserInfoFacebook.sql" />
+    <Build Include="acc\Stored Procedures\UpdateUserInfoGoogle.sql" />
+    <Build Include="acc\Stored Procedures\UpdateUserInfoMicrosoft.sql" />
+    <Build Include="acc\Functions\GetUserBaseId.sql" />
+    <Build Include="dbo\Tables\GoldPriceZ.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="acc\Deployment Scripts\Script.PreDeployment.sql" />
+    <None Include="cmd\Deployment Scripts\Script.PreDeployment.sql" />
+    <None Include="dbo\Deployment Scripts\Script.PreDeployment.sql" />
+    <None Include="frm\Deployment Scripts\Script.PreDeployment.sql" />
+    <None Include="mar\Deployment Scripts\Script.PreDeployment.sql" />
+    <None Include="plt\Deployment Scripts\Script.PreDeployment.sql" />
+    <None Include="trd\Deployment Scripts\Script.PreDeployment.sql" />
+  </ItemGroup>
+</Project>
