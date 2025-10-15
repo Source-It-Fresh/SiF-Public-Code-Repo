@@ -6,5 +6,5 @@
 /docs/ @SiF-Guy @SiF-Petri
 
 # Specific files or FileTypes
-*.md @SiF-Guy @sif-admin-team
-*.js @sif-maintain-team
+*.md @SiF-Guy @Source-It-Fresh/sif-admin-team
+*.js @Source-It-Fresh/sif-maintain-team
