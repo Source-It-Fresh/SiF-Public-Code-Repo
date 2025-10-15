@@ -32,5 +32,5 @@ docker rm $(docker ps -a -q)
 docker rmi $(docker images -a -q)
 
 
-## Exequte compsed doker
+## Execute composed docker
 docker-compose up
