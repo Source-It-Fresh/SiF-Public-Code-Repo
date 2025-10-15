@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/scr/Other/SiF_AppData_Context/bin
+/scr/Other/SiF_Database_Project/bin
+/scr/Other/SiF_Database_Project/obj
+/scr/Other/SiF_AppData_Context/obj
+/scr/Other/SiF_AppData_API/obj
+/scr/Other/SiF_AppData_API/bin
+/scr/obj/Docker
+/scr/.vs/SiF_Main_Solution
+/.vs

@@ -14,7 +14,8 @@ services:
     image: mcr.microsoft.com/mssql/server
     environment:
       ACCEPT_EULA: "Y"
-      SA_PASSWORD: "Mult!c@st"
+      # Set SA_PASSWORD in a .env file or as an environment variable, do not hardcode here
+      SA_PASSWORD: ${SA_PASSWORD}
     ports:
       - "1444:1433"
     volumes:
