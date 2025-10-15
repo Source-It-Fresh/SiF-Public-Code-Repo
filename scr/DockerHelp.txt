@@ -18,7 +18,7 @@ docker images
 ### Show All containers
 docker ps
 
-### Stop Spisific Container
+### Stop Specific Container
 docker stop <CONTAINER ID>
 
 ### Purging All Unused or Dangling Images, Containers, Volumes, and Networks
