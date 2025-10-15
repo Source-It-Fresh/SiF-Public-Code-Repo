@@ -12,3 +12,6 @@
 /scr/.vs/SiF_Main_Solution
 /.vs
 *.user
+/src/.vs/SiF_Main_Solution
+/src/Other/SiF_AppData_API/bin
+/src/Other/SiF_AppData_API/obj
