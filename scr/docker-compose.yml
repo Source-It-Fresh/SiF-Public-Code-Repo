@@ -7,7 +7,7 @@ services:
     image: mcr.microsoft.com/mssql/server
     environment:
       ACCEPT_EULA: "Y"
-      SA_PASSWORD: "Mult!c@st"
+      SA_PASSWORD: ${SA_PASSWORD}
     ports:
       - "1444:1433"
     volumes:
