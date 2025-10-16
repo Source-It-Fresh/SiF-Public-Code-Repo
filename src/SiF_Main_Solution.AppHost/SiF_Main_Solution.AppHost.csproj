@@ -1,0 +1,81 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsAspireHost>true</IsAspireHost>
+        <UserSecretsId>9e306cc8-8cf0-4172-89e9-c5560b99ea96</UserSecretsId>
+
+        <Title>$(AssemblyName)</Title>
+        <Authors>Source_It_Fresh</Authors>
+        <ApplicationIcon>favicon.ico</ApplicationIcon>
+        <PackageIcon>SIF_Logo_310x310.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Copyright>SiF - Copyleft (C) 2020 - GNU Affero General Public License v3.0</Copyright>
+        <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://www.sourceitfresh.com/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Source-It-Fresh/</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="appsettings.Development.json" />
+        <None Remove="appsettings.json" />
+        <None Remove="appsettings.Staging.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="appsettings.Development.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        </Content>
+        <Content Include="appsettings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        </Content>
+        <Content Include="appsettings.Staging.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        </Content>
+        <Content Include="favicon.ico" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\Other\SiF_Shared_Project\SIF_Logo_310x310.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Hosting.AppHost" Version="9.4.1" />
+        <PackageReference Include="Aspire.Hosting.Redis" Version="9.4.1" />
+        <PackageReference Include="SonarAnalyzer.CSharp" Version="10.15.0.120848">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Common\APIs\SiF_ASPNetCore_Helper_WebAPI\SiF_ASPNetCore_Helper_WebAPI.csproj" />
+        <ProjectReference Include="..\Other\SiF_AppData_API\SiF_AppData_API.csproj" />
+        <ProjectReference Include="..\Classic\Apps\SiF_ASPNetCore_MVC_WebApp\SiF_ASPNetCore_MVC_WebApp.csproj" />
+        <ProjectReference Include="..\Classic\Apps\SiF_ASPNetCore_Razor_WebApp\SiF_ASPNetCore_Razor_WebApp.csproj" />        
+        <ProjectReference Include="..\Blazor\Apps\SiF_Blazor_Server_App\SiF_Blazor_Server_App.csproj" />
+        <ProjectReference Include="..\Blazor\Apps\SiF_Blazor_Web_App\SiF_Blazor_Web_App\SiF_Blazor_Web_App.csproj" />
+        <ProjectReference Include="..\CloudNative\WebServices\SiF_ASPNetCore_AOT_WebAPI\SiF_ASPNetCore_AOT_WebAPI.csproj" />
+        <ProjectReference Include="..\CloudNative\WebServices\SiF_ASPNetCore_gRPC_Service\SiF_ASPNetCore_gRPC_Service.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+
+        <Title>$(AssemblyName)</Title>
+        <Authors>Source_It_Fresh</Authors>
+        <ApplicationIcon>favicon.ico</ApplicationIcon>
+        <PackageIcon>SIF_Logo_310x310.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Copyright>SiF - Copyleft (C) 2020 - GNU Affero General Public License v3.0</Copyright>
+        <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://www.sourceitfresh.com/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Source-It-Fresh/</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="favicon.ico" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\..\..\Other\SiF_Shared_Project\SIF_Logo_310x310.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <SupportedPlatform Include="browser" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="bootstrap" Version="5.3.7" />
+        <PackageReference Include="jQuery" Version="3.7.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="9.0.8" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="9.0.8" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.8" />
+        <PackageReference Include="MudBlazor" Version="8.11.0" />
+        <PackageReference Include="MudBlazor.ThemeManager" Version="3.0.0" />
+        <PackageReference Include="Radzen.Blazor" Version="7.2.1" />
+        <PackageReference Include="SonarAnalyzer.CSharp" Version="10.15.0.120848">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\SiF_Standard_ClassLibrary\SiF_Standard_ClassLibrary.csproj" />
+    </ItemGroup>
+
+    <Import Project="..\..\..\Other\SiF_Shared_Project\SiF_Shared_Project.projitems" Label="Shared" />
+
+    <ItemGroup>
+        <Content Update="wwwroot\*.*">
+            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        </Content>
+    </ItemGroup>
+
+</Project>

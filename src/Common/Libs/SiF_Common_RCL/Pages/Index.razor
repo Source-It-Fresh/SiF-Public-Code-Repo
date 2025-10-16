@@ -1,0 +1,521 @@
+﻿@*
+### ### ### ### ### ### ###
+SourceItFresh - Copyright (C) 2020
+This SiF file is licensed under v3 of the GNU Affero General Public License.
+### ### ###
+GNU AGPLv3 lets people do almost anything they want with the project, except distributing closed-source versions.
+
+Permissions of this strongest copyleft license are conditioned on:
+Making available the complete source code of works and modifications,
+ which include larger works using a licensed work, under the same license.
+Copyright and license notices must be preserved.
+Contributors provide an express grant of patent rights.
+When a modified version is used to provide a service over a network,
+ the complete source code of the modified version must be made available.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY,
+ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+### ### ###
+See LICENSE.txt for more details or visit <https://www.gnu.org/licenses/>
+### ### ### ### ### ### ###
+*@
+@page "/"
+@page "/Home"
+@page "/Index"
+
+@using SourceItFresh.Components.Shared
+@using System.Globalization
+
+@inject IStringLocalizer<Index> _StringLocalizer
+
+@*@attribute [AllowAnonymous]*@
+@*@namespace SourceItFresh*@
+
+@{
+    string Header = "Home Page";
+}
+
+<PageTitle>@Header</PageTitle>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+
+@*@{
+    Layout = "_LayoutSite";
+    ViewData["Title"] = "Home Page";
+    }*@
+
+@*
+    <div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+    <h1>Welcome Intro</h1>
+    <p>
+    Source If Fresh is for everyone whether you are a first time grower need in information a homesteader with some extra crops or a well-established corporation looking to engage into local opportunities SIF has you covered and best of all you’re making an environmental difference while simplifying and facilitating an all aspects of the process.<br>
+    <br>
+    What the site offers (Paid functions include): (extensive list of features functions and images and tutorial vids showcasing setup builder and AI)<br>
+    &emsp;--Are you a small fry having to compete with big fries<br>
+    &emsp;&emsp;*DIY urban setup materials builder (Aquaponics, airoponix, ...) [component selector with m2 available, scalability, modular, selector/drop&drag on default template)<br>
+    &emsp;&emsp;&emsp;Estimated Cost of raw materials<br>
+    &emsp;&emsp;&emsp;Estimated Setup time<br>
+    &emsp;&emsp;&emsp;Estimated Maintenance<br>
+    &emsp;&emsp;*Tips on indoor vertical farming and plan food ratios (-90% water & supplement) [use user data + ted tales]<br>
+    &emsp;&emsp;*Plant info ideal planting conditions<br>
+    &emsp;&emsp;&emsp;Full plan lifestyle<br>
+    &emsp;&emsp;&emsp;Plant wiki-best crop to grow by farming system, country conditions, starting capital, time to mature, space required market availability (profitability<br>
+    &emsp;&emsp;*How to harvest<br>
+    <br>
+    &emsp;--Don’t know anything about AI/computer learning modules<br>
+    &emsp;&emsp;*send farm parameters with crop stats and use SIF online data science capabilities<br>
+    <br>
+    About Us: (mission / vision)<br>
+    &emsp;Reduce finite natural materials<br>
+    &emsp;Provide fresh easily accessible inexpensive high quality produce<br>
+    &emsp;Creating a global platform for the entrepreneurial producers of the future<br>
+    &emsp;Creating an internationally relevant current and current plan database<br>
+    <br>
+    Some bio here:<br>
+    &emsp;We produce enough food to feed the populist but 40% of the food go’s to what on the way to the market or sitting on the shelf with hungry people with no viable way to access to it<br>
+    &emsp;Therefore, we need to re think the problem as a hungry person cannot focus, an unfocused person cannot study and an undedicated person cannot make wise informed life choices<br>
+    &emsp;We can manage colossal globe catastrophes by making a pathway designed to accelerate the potential of all creatures of the future.<br>
+    <br>
+    Do not know where to begin? (Plant health care, growing, building, plant info like size, time to grow potential profit)<br>
+    &emsp;Wiki<br>
+    &emsp;Useful links<br>
+    &emsp;DIY<br>
+    </p>
+    </div>
+    </div>
+*@
+
+<style>
+    h1 {
+        color: #2b7920;
+    }
+
+    h4 {
+        color: #2b7920;
+    }
+</style>
+
+<MudPaper Class="d-flex align-center justify-center mud-width-full" Elevation="0">
+    <MudGrid>
+        <MudItem xs="12">
+            <!-- Start Home Area -->
+            <MudElement Class="home-area section-gap" id="home">
+                <MudGrid>
+                    <MudItem xs="12" md="6">
+                        <MudText Class="p-5" Align="Align.Center" Typo="Typo.h1"><b>@_StringLocalizer["Title"]</b></MudText>
+                        <MudText Class="m-2" Align="Align.Left" Typo="Typo.body1">
+                            @_StringLocalizer["Greetings1"]<br />
+                            @_StringLocalizer["Greetings2"]
+                        </MudText>
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                        <MudImage Class="img-fluid p-3 mt-4 mb-2" Src="_content/SiF_Common_RCL/Images/header1.png" Alt="Be part of beautiful change" />
+                    </MudItem>
+                </MudGrid>
+            </MudElement>
+            <!-- End Home Area -->
+        </MudItem>
+
+        <MudItem xs="12">
+            <!-- Start About Area-->
+            <MudElement Class="about-area section-gap" id="about">
+                <MudGrid>
+                    <MudItem xs="12" md="8">
+                        @*<MudElement Class="mt-4"></MudElement>*@
+                        <MudText Class="p-3" Align="Align.Left" Typo="Typo.h4">@_StringLocalizer["Heading001"]</MudText>
+                        <MudText Class="m-2" Align="Align.Left" Typo="Typo.body1">
+                            @_StringLocalizer["Details001.1"]
+                        </MudText>
+                        <MudText Class="p-3" Align="Align.Left" Typo="Typo.subtitle2"><b>@_StringLocalizer["Details001.2"]</b></MudText>
+                    </MudItem>
+                    <MudItem xs="12" md="4">
+                        <MudImage Class="img-fluid p-3 mt-4 mb-2" Src="_content/SiF_Common_RCL/Images/fruits.png" Alt="Produce something fabulous" />
+                    </MudItem>
+                </MudGrid>
+            </MudElement>
+            <!--End About Area-->
+        </MudItem>
+
+        <MudItem xs="12">
+            <!-- Start Project Area-->
+            <MudElement Class="project-area section-gap" id="project">
+                <MudGrid>
+                    <MudItem xs="12" md="4">
+                        @*<MudElement Class="mt-4"></MudElement>*@
+                        <MudCard>
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Class="p-3" Align="Align.Left" Typo="Typo.h4">@_StringLocalizer["Producers"]</MudText>
+                                </CardHeaderContent>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudText Class="m-3" Align="Align.Left" Typo="Typo.body2">
+                                    @_StringLocalizer["ProducersText"]
+                                </MudText>
+                            </MudCardContent>
+                            <MudCardActions Class="d-flex justify-center">
+                                <MudFab Href="/SiF_Common_RCL/Information/GrowersComponent" StartIcon="fas fa-hand-holding-water" Label=@_StringLocalizer["ViewDetails"] DropShadow="false" />
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                    <MudItem xs="12" md="4">
+                        @*<MudElement Class="mt-4"></MudElement>*@
+                        <MudCard>
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Class="m-3" Align="Align.Left" Typo="Typo.h4">@_StringLocalizer["Suppliers"]</MudText>
+                                </CardHeaderContent>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudText Class="p-3" Align="Align.Left" Typo="Typo.body2">
+                                    @_StringLocalizer["SuppliersText"]
+                                </MudText>
+                            </MudCardContent>
+                            <MudCardActions Class="d-flex justify-center">
+                                <MudFab Href="/SiF_Common_RCL/Information/SuppliersComponent" StartIcon="fas fa-parachute-box" Label=@_StringLocalizer["ViewDetails"] DropShadow="false" />
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                    <MudItem xs="12" md="4">
+                        @*<MudElement Class="mt-4"></MudElement>*@
+                        <MudCard>
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Class="m-3" Align="Align.Left" Typo="Typo.h4">@_StringLocalizer["Consumers"]</MudText>
+                                </CardHeaderContent>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudText Class="p-3" Align="Align.Left" Typo="Typo.body2">
+                                    @_StringLocalizer["ConsumersText"]
+                                </MudText>
+                            </MudCardContent>
+                            <MudCardActions Class="d-flex justify-center">
+                                <MudFab Href="/SiF_Common_RCL/Information/BuyersComponent" StartIcon="fas fa-utensils" Label=@_StringLocalizer["ViewDetails"] DropShadow="false" />
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                </MudGrid>
+
+                <MudGrid Class="px-2">
+                    <MudItem xs="12" md="4">
+                        <MudImage Class="img-fluid p-3 mt-4 mb-2" Src="_content/SiF_Common_RCL/Images/3circle.png" Alt="Keep it turning" />
+                    </MudItem>
+                    <MudItem xs="12" md="8">
+                        @*<MudElement Class="p-2 mt-5"></MudElement>*@
+                        <MudText Class="p-3" Align="Align.Left" Typo="Typo.h4">@_StringLocalizer["Heading002"]</MudText>
+                        <MudText Class="m-2" Align="Align.Left" Typo="Typo.body1">
+                            @_StringLocalizer["Details002.1"]<br />
+                            @_StringLocalizer["Details002.2"]<br />
+                            @_StringLocalizer["Details002.3"]<br />
+                        </MudText>
+                    </MudItem>
+                </MudGrid>
+            </MudElement>
+            <!-- End Project Area -->
+        </MudItem>
+
+        <MudItem xs="12">
+            <!-- Start DiveIn Area -->
+            <MudElement Class="diveIn-area section-gap" id="diveIn">
+                <MudGrid Class="px-2">
+                    <MudItem xs="12" md="3">
+                        @*<MudElement Class="mt-4"></MudElement>*@
+                        <MudImage Class="img-fluid p-3 mb-2 rounded" Src="_content/SiF_Common_RCL/Images/foodprep.jpg" Alt="Make something fabulous" />
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                        <MudPaper Class="p-3 mb-5 rounded">
+                            <MudText Class="p-3" Align="Align.Center" Typo="Typo.h3">@_StringLocalizer["Heading003"]</MudText>
+                            <MudText Class="m-2" Align="Align.Center" Typo="Typo.caption">
+                                 @_StringLocalizer["Details003"]
+                            </MudText>
+                            <br />
+                            <MudText Class="p-3" Align="Align.Center" Typo="Typo.caption">All from one FREE platform.</MudText>
+                            <br />
+                            <MudFab Href="#" Label="Take a test drive.." DisableElevation="false" />
+                        </MudPaper>
+                    </MudItem>
+                    <MudItem xs="12" md="3">
+                        @*<MudElement Class="mt-4"></MudElement>*@
+                        <MudImage Class="img-fluid p-3 mb-2 rounded" Src="_content/SiF_Common_RCL/Images/catering.jpg" Alt="Make something fabulous" />
+                    </MudItem>
+                </MudGrid>
+
+                <MudGrid Class="px-2">
+                    <MudItem xs="12" md="6">
+                        @*<MudElement Class="p-2 mt-3"></MudElement>*@
+                        <MudCard>
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Class="p-3" Align="Align.Left" Typo="Typo.h4">@_StringLocalizer["Heading004"]</MudText>
+                                </CardHeaderContent>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudText Class="m-3" Align="Align.Left" Typo="Typo.body1">
+                                    @_StringLocalizer["Details004.1"]<br />
+                                    @_StringLocalizer["Details004.2"]<br />
+                                    @_StringLocalizer["Details004.3"]<br />
+                                    @_StringLocalizer["Details004.4"]<br />
+                                </MudText>
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudFab Href="/Core_Identity/Account/Login" Label="Producing already?" DisableElevation="false" />
+                                <MudFab Href="/Core_Identity/Account/Register" Label="Want to start?" DisableElevation="false" />
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                        <MudImage Class="img-fluid" Src="_content/SiF_Common_RCL/Images/food-basket.jpg" Alt="Grow something fabulous" />
+                    </MudItem>
+                </MudGrid>
+            </MudElement>
+            <!-- End DiveIn Area -->
+        </MudItem>
+
+        <MudItem xs="12">
+            <!-- Start Price Area -->
+            <MudElement Class="price-area section-gap" id="price">
+                <MudGrid Spacing="2" Justify="Justify.Center">
+                    <MudItem xs="12" sm="6" md="4">
+                        <MudCard Elevation="25" Class="rounded-lg pb-4">
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.h5" Align="Align.Center">Lite</MudText>
+                                </CardHeaderContent>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudElement Class="d-flex justify-center">
+                                    <MudText Typo="Typo.h3">FREE</MudText>
+                                    <MudText Typo="Typo.h5" Class="ml-1 mt-5" Color="Color.Warning">/Monthly</MudText>
+                                </MudElement>
+                                <MudList T="string" Class="mx-auto mt-4" Style="width:300px;">
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Create trading entity</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Designate production areas</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Assign work spaces</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Allocate delegates</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Broadcast available produce</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.NotInterested" IconColor="Color.Error">Connect to community</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.NotInterested" IconColor="Color.Error">Access useful data</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Source geolocatable product</MudListItem>
+                                </MudList>
+                            </MudCardContent>
+                            <MudCardActions Class="d-flex justify-center">
+                                <MudButton Link="/Core_Identity/Account/Login" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Style="width:50%;">Select</MudButton>
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                    <MudItem xs="12" sm="6" md="4">
+                        <MudCard Elevation="25" Class="rounded-lg pb-4">
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.h5" Align="Align.Center">Premium</MudText>
+                                </CardHeaderContent>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudElement Class="d-flex justify-center">
+                                    <MudText Typo="Typo.h3">$15</MudText>
+                                    <MudText Typo="Typo.h5" Class="ml-1 mt-5" Color="Color.Warning">/Monthly</MudText>
+                                </MudElement>
+                                <MudList T="string" Class="mx-auto mt-4" Style="width:300px;">
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Create trading entity</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Designate production areas</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Assign work spaces</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Allocate delegates</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Broadcast available produce</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Connect to community</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Access useful data</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Source geolocatable product</MudListItem>
+                                </MudList>
+                            </MudCardContent>
+                            <MudCardActions Class="d-flex justify-center">
+                                <MudButton Link="/Core_Identity/Account/Login" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Style="width:50%;">Select</MudButton>
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                    <MudItem xs="12" sm="12" md="4">
+                        <MudCard Elevation="25" Class="rounded-lg pb-4">
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.h5" Align="Align.Center">Enterprise</MudText>
+                                </CardHeaderContent>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudElement Class="d-flex justify-center">
+                                    <MudText Typo="Typo.h3">$99</MudText>
+                                    <MudText Typo="Typo.h5" Class="ml-1 mt-5" Color="Color.Warning">/Monthly</MudText>
+                                </MudElement>
+                                <MudList T="string" Class="mx-auto mt-4" Style="width:300px;">
+                                    <MudListItem Icon="@Icons.Material.TwoTone.DoneOutline" IconColor="Color.Success">All 'Premium' features</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Create educational entity</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Designate data spaces</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Assign roles</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Access global data - per species</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Broadcast value chain</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Allocate budget</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Collaborate with other institutions</MudListItem>
+                                    <MudListItem Icon="@Icons.Material.TwoTone.Check">Seek out suppliers</MudListItem>
+                                </MudList>
+                            </MudCardContent>
+                            <MudCardActions Class="d-flex justify-center">
+                                <MudButton Link="/Core_Identity/Account/Login" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Style="width:50%;">Select</MudButton>
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                </MudGrid>
+            </MudElement>
+            <!-- End Price Area -->
+        </MudItem>
+
+        @*<MudItem xs="12">
+            <!-- Start Team Area -->
+            <MudElement Class="team-area section-gap" id="team">
+            <div class="container">
+            <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+            <div class="title text-center">
+            <h1 class="mb-10">About the Source it Fresh team</h1>
+            <p>Who are dedicated to growing healthy.</p>
+            </div>
+            </div>
+            </div>
+            <div class="row justify-content-center d-flex align-items-center">
+            <div class="col-md-3 single-team">
+            <div class="thumb">
+            <img class="img-fluid" src="~/TopCrops_Assets/img/t1.jpg" alt="">
+            <div class="align-items-center justify-content-center d-flex">
+            <a href="#"><i class="fas fa-facebook fa-fw"></i></a>
+            <a href="#"><i class="fas fa-twitter fa-fw"></i></a>
+            <a href="#"><i class="fas fa-linkedin fa-fw"></i></a>
+            </div>
+            </div>
+            <div class="meta-text mt-30 text-center">
+            <h4>Guy Edmonds</h4>
+            <p>CEO Supply Chain</p>
+            </div>
+            </div>
+            <div class="col-md-3 single-team">
+            <div class="thumb">
+            <img class="img-fluid" src="~/TopCrops_Assets/img/t2_WPM.gif" alt="" height="262" width="300">
+            <div class="align-items-center justify-content-center d-flex">
+            <a href="#"><i class="fas fa-facebook fa-fw"></i></a>
+            <a href="#"><i class="fas fa-twitter fa-fw"></i></a>
+            <a href="#"><i class="fas fa-linkedin fa-fw"></i></a>
+            </div>
+            </div>
+            <div class="meta-text mt-30 text-center">
+            <h4>Petri Malherbe</h4>
+            <p>Application development</p>
+            </div>
+            </div>
+            <div class="col-md-3 single-team">
+            <div class="thumb">
+            <img class="img-fluid" src="~/TopCrops_Assets/img/t3.jpg" alt="">
+            <div class="align-items-center justify-content-center d-flex">
+            <a href="#"><i class="fas fa-facebook fa-fw"></i></a>
+            <a href="#"><i class="fas fa-twitte fa-fwr"></i></a>
+            <a href="#"><i class="fas fa-linkedin fa-fw"></i></a>
+            </div>
+            </div>
+            <div class="meta-text mt-30 text-center">
+            <h4>aka 'Aquaman'</h4>
+            <p>Hydroponics & Aquaponics (Phd)</p>
+            </div>
+            </div>
+            <div class="col-md-3 single-team">
+            <div class="thumb">
+            <img class="img-fluid" src="~/TopCrops_Assets/img/t4.jpg" alt="">
+            <div class="align-items-center justify-content-center d-flex">
+            <a href="#"><i class="fas fa-facebook fa-fw"></i></a>
+            <a href="#"><i class="fas fa-twitter fa-fw"></i></a>
+            <a href="#"><i class="fas fa-linkedin fa-fw"></i></a>
+            </div>
+            </div>
+            <div class="meta-text mt-30 text-center">
+            <h4>Jacline Someone</h4>
+            <p>Horticulturalist</p>
+            </div>
+            </div>
+            </div>
+            </div>
+            </MudElement>
+            <!-- End Team Area -->
+            </MudItem>*@
+
+        @*<MudItem xs="12">
+            <!-- Start Testimonial Area -->
+            <MudElement Class="testimonial-area section-gap" id="testimonial">
+            <div class="row">
+            <div class="col-md-3">
+            <div class="shadow-sm p-3 mb-5 mt-3 bg-white">
+            <img class="img-fluid" src="~/TopCrops_Assets/img/user1.png" alt="Smile sometimes">
+            <h4>Markus Williams</h4>
+            <p>CEO Claremont Business Improvement District</p>
+            <p>Fantastic team, great app! Building a business around healthy food, right on your doorstep. Also had a great experience with support.</p>
+            </div>
+            </div>
+            <div class="col-md-3">
+            <div class="shadow-sm p-3 mb-5 mt-3 bg-white">
+            <img class="img-fluid" src="_content/SiF_Common_RCL/Images/user2.png" alt="">
+            <h4>Bertus Ferierra</h4>
+            <p>Training Manager - Woolworths Fresh Foods</p>
+            <p>Well structured business plan, easy to implement and start supplying local businesses. Cash flow within 6 weeks of project handover.</p>
+            </div>
+            </div>
+            <div class="col-md-3">
+            <div class="shadow-sm p-3 mb-5 mt-3 bg-white">
+            <img class="img-fluid" src="_content/SiF_Common_RCL/Images/t4.jpg" alt="">
+            <h4>Jana Viljoen</h4>
+            <p>Intern - Aerofarms California greens division</p>
+            <p>Fantastic team, great app! Building a business around healthy food, right on your doorstep. Also had a great experience with support.</p>
+            </div>
+            </div>
+            <div class="col-md-3">
+            <div class="shadow-sm p-3 mb-5 mt-3 bg-white">
+            <img class="img-fluid" src="_content/SiF_Common_RCL/Images/t3.jpg" alt="">
+            <h4>Nicole Louw</h4>
+            <p>Owner - Nix for Nix garden markets</p>
+            <p>Amazing app and we're using the absolutely free version. I hope these poopals learn how to make some money somehow??</p>
+            </div>
+            </div>
+            </div>
+            </MudElement>
+            <!-- End Testimonial Area -->
+            </MudItem>*@
+
+        <MudItem xs="12">
+            <!-- Start Btm Area -->
+            <MudElement Class="buttons p-2">
+                <MudElement Disabled="true" HtmlTag="a" Target="_blank" Href="http://play.google.com/store/apps/details?id=com.google.android.apps.maps"><MudImage Src="_content/SiF_Common_RCL/Images/Play_Store.png" Width="150" Height="45" Alt="SIF Android Store App" /></MudElement>
+                <MudElement Disabled="true" HtmlTag="a" Target="_blank" Href="https://www.microsoft.com/en-za/p/powernapp/9wzdncrdmxlv?cid=msft_web_appsforwindowsphone_collection&activetab=pivot:overviewtab"><MudImage Src="_content/SiF_Common_RCL/Images/MS_Store.png" Width="150" Height="45" Alt="SIF Microsoft Store App" /></MudElement>
+                <MudElement Disabled="true" HtmlTag="a" Target="_blank" Href="https://apps.apple.com/za/app/itunes-remote/id284417350"><MudImage Src="_content/SiF_Common_RCL/Images/Apple_Store.png" Width="150" Height="45" Alt="SIF Apple Store App" /></MudElement>
+            </MudElement>
+        </MudItem>
+        @*<br />*@
+        <MudItem xs="12">
+            <MudCard>
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Class="p-3" Align="Align.Left" Typo="Typo.h1">@_StringLocalizer["Heading005"]</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudText Class="m-3" Align="Align.Left" Typo="Typo.body1">
+                        @_StringLocalizer["Details005.1"]<br />
+                        @_StringLocalizer["Details005.2"]<br />
+                        <br />
+                        @_StringLocalizer["Details005.3"]<br />
+                    </MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudFab Class="btn btn-sif mb-3" Link="/Core_Identity/Account/Login" Label="Login" DropShadow="false" />
+                    <MudFab Class="btn btn-sif mb-3" Link="/Core_Identity/Account/Register" Label="Register Now" DropShadow="false" />
+                </MudCardActions>
+            </MudCard>
+            <!-- End Btm Area -->
+        </MudItem>
+    </MudGrid>
+</MudPaper>

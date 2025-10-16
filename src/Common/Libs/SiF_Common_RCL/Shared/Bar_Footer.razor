@@ -1,0 +1,60 @@
+﻿@*
+### ### ### ### ### ### ###
+SourceItFresh - Copyright (C) 2020
+This SiF file is licensed under v3 of the GNU Affero General Public License.
+### ### ###
+GNU AGPLv3 lets people do almost anything they want with the project, except distributing closed-source versions.
+
+Permissions of this strongest copyleft license are conditioned on:
+Making available the complete source code of works and modifications,
+ which include larger works using a licensed work, under the same license.
+Copyright and license notices must be preserved.
+Contributors provide an express grant of patent rights.
+When a modified version is used to provide a service over a network,
+ the complete source code of the modified version must be made available.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY,
+ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+### ### ###
+See LICENSE.txt for more details or visit <https://www.gnu.org/licenses/>
+### ### ### ### ### ### ###
+*@
+@using SiF_Common_RCL.Shared.Services
+
+@inject LocalizationCultureService _LocalizationCultureService
+
+<MudContainer MaxWidth="MaxWidth.Medium">
+    <MudGrid Spacing="2" Justify="Justify.Center">
+            @{
+#if DEBUG
+            var ppp = string.Empty;
+            <MudItem xs="12">
+                <MudPaper Class="d-flex justify-center mud-width-full">
+                    <MudHidden Breakpoint="Breakpoint.Xl" Invert="true"><MudText Typo="Typo.subtitle1">[XL] </MudText></MudHidden>
+                    <MudHidden Breakpoint="Breakpoint.Lg" Invert="true"><MudText Typo="Typo.subtitle1">[LG] </MudText></MudHidden>
+                    <MudHidden Breakpoint="Breakpoint.Md" Invert="true"><MudText Typo="Typo.subtitle1">[MD] </MudText></MudHidden>
+                    <MudHidden Breakpoint="Breakpoint.Sm" Invert="true"><MudText Typo="Typo.subtitle1">[SM] </MudText></MudHidden>
+                    <MudHidden Breakpoint="Breakpoint.Xs" Invert="true"><MudText Typo="Typo.subtitle1">[XS] </MudText></MudHidden>
+                    <MudSpacer />
+                    <MudHidden Breakpoint="Breakpoint.LgAndUp" Invert="true"><MudText Typo="Typo.subtitle2">[LG_&_^] </MudText></MudHidden>
+                    <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true"><MudText Typo="Typo.subtitle2">[MD_&_^] </MudText></MudHidden>
+                    <MudHidden Breakpoint="Breakpoint.SmAndUp" Invert="true"><MudText Typo="Typo.subtitle2">[SM_&_^] </MudText></MudHidden>
+                    <MudSpacer />
+                    <MudHidden Breakpoint="Breakpoint.LgAndDown" Invert="true"><MudText Typo="Typo.subtitle2">[LG_&_v] </MudText></MudHidden>
+                    <MudHidden Breakpoint="Breakpoint.MdAndDown" Invert="true"><MudText Typo="Typo.subtitle2">[MD_&_v] </MudText></MudHidden>
+                    <MudHidden Breakpoint="Breakpoint.SmAndDown" Invert="true"><MudText Typo="Typo.subtitle2">[SM_&_v] </MudText></MudHidden>
+                </MudPaper>
+            </MudItem>
+#endif
+            }
+        <MudItem xs="12">
+            @*<section>*@
+            <MudPaper Class="d-flex justify-center mud-width-full">
+                <MudText Typo="Typo.body1">
+                    &copy; 2022 - SourceItFresh - <a href="/PrivacyLegalComponent"> <i class="fas fa-gavel"></i> @_LocalizationCultureService.GetValue("Bar_Footer:PrivacyLegal")</a>
+                </MudText>
+            </MudPaper>
+            @*</section>*@
+        </MudItem>
+    </MudGrid>
+</MudContainer>

@@ -1,0 +1,101 @@
+﻿@*
+### ### ### ### ### ### ###
+SourceItFresh - Copyright (C) 2020
+This SiF file is licensed under v3 of the GNU Affero General Public License.
+### ### ###
+GNU AGPLv3 lets people do almost anything they want with the project, except distributing closed-source versions.
+
+Permissions of this strongest copyleft license are conditioned on:
+Making available the complete source code of works and modifications,
+ which include larger works using a licensed work, under the same license.
+Copyright and license notices must be preserved.
+Contributors provide an express grant of patent rights.
+When a modified version is used to provide a service over a network,
+ the complete source code of the modified version must be made available.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY,
+ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+### ### ###
+See LICENSE.txt for more details or visit <https://www.gnu.org/licenses/>
+### ### ### ### ### ### ###
+*@
+@using SourceItFresh.Shared.Common
+@*@using SourceItFresh.Areas.Configure_Settings.Services.Interfaces*@
+@using SiF_Common_RCL.Shared.Services
+
+@*@inject ITraderEntitySettingsDataService _TraderEntitySettingsDataService*@
+@inject LocalizationCultureService _LocalizationCultureService
+
+<AuthorizeView>
+    <NotAuthorized>
+        <MudMenu AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft" Class="mt-1 ml-4" Dense="true">
+            <ActivatorContent>
+                <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
+                    <MudText Typo="Typo.subtitle2" Color="Color.Inherit" Class="ml-4 my-3 pr-2"><MudIcon Icon="@Icons.Material.TwoTone.Help" /> @_LocalizationCultureService.GetValue("LoginDisplay:Menu:Help") <MudIcon Icon="@Icons.Material.TwoTone.KeyboardArrowDown" /></MudText>
+                </MudHidden>
+                <MudHidden Breakpoint="Breakpoint.MdAndUp">
+                    <MudText Typo="Typo.subtitle2" Color="Color.Inherit" Class="ml-4 my-3 pr-2"><MudIcon Icon="@Icons.Material.TwoTone.Help" /></MudText>
+                </MudHidden>
+            </ActivatorContent>
+            <ChildContent>
+                <MudListItem T="string" Disabled="true" Text=@_LocalizationCultureService.GetValue("LoginDisplay:Help:ApplicationDetails") Icon="fas fa-code-branch fa-fw" Href="#" title="About SIF WebApp" />
+                <MudDivider Class="my-1" />
+                <MudListItem T="string" Text=@_LocalizationCultureService.GetValue("LoginDisplay:Help:ApplicationGuide") Icon="fas fa-info fa-fw" Href="/Core_Help/ApplicationGuideComponent" title="App Guide" />
+                <MudDivider Class="my-1" />
+                <MudListItem T="string" Text=@_LocalizationCultureService.GetValue("LoginDisplay:Help:ReportAnIssue") Icon="fas fa-bug fa-fw" Href="/Core_Help/FeedbacksComponent/2" title="Contact Dev's" />
+                <MudListItem T="string" Text=@_LocalizationCultureService.GetValue("LoginDisplay:Help:ShareFeedbackIdeas") Icon="fas fa-comment fa-fw" Href="/Core_Help/FeedbacksComponent/1" title="Contact Admin's" />
+            </ChildContent>
+        </MudMenu>
+        <MudMenu Icon="@Icons.Material.TwoTone.Translate" Color="Color.Inherit" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft" Dense="true">
+            <_TranslateDisplay RTL_State="@RTL_State" RTL_StateChanged="UpdateRTL_State" />
+        </MudMenu>
+        <MudToggleIconButton @bind-Toggled="@IsDarkMode" Icon="@Icons.Material.TwoTone.DarkMode" ToggledIcon="@Icons.Material.TwoTone.LightMode" @onclick="@UpdateIsDarkMode" />
+    </NotAuthorized>
+    <Authorized>
+        <MudMenu Icon="@Icons.Material.TwoTone.MoreVert" Color="Color.Inherit" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft" Class="mt-1 ml-4" Dense="true">
+            <MudNavMenu Class="mud-width-full" Color="Color.Info" Bordered="true" Rounded="true">
+                <MudToggleIconButton @bind-Toggled="@IsDarkMode" Icon="@Icons.Material.TwoTone.DarkMode" ToggledIcon="@Icons.Material.TwoTone.LightMode" @onclick="@UpdateIsDarkMode" />
+                <MudNavGroup Icon="@Icons.Material.TwoTone.Translate" Expanded="false">
+                    <_TranslateDisplay RTL_State="@RTL_State" RTL_StateChanged="UpdateRTL_State" />
+                </MudNavGroup>
+                <MudDivider Class="my-1" />
+                <MudNavGroup Title="@_LocalizationCultureService.GetValue("LoginDisplay:Menu:Help")" Icon="@Icons.Material.TwoTone.Help" Expanded="false">
+                    <MudNavLink Disabled Href="#" Icon="fas fa-code-branch fa-fw">@_LocalizationCultureService.GetValue("LoginDisplay:Help:ApplicationDetails")</MudNavLink>
+                    <MudDivider Class="my-1" />
+                    <MudNavLink Href="/Core_Help/ApplicationGuideComponent" Icon="fas fa-info fa-fw">@_LocalizationCultureService.GetValue("LoginDisplay:Help:ApplicationGuide")</MudNavLink>
+                    <MudDivider Class="my-1" />
+                    <MudNavLink Href="/FeedbackIndex" Icon="fas fa-bug fa-fw">@_LocalizationCultureService.GetValue("LoginDisplay:Help:ReportAnIssue")</MudNavLink>
+                    <MudNavLink Href="/WriteFeedback?FeedbackId=1" Icon="fas fa-comment fa-fw" >@_LocalizationCultureService.GetValue("LoginDisplay:Help:ShareFeedbackIdeas")</MudNavLink>
+                </MudNavGroup>
+            </MudNavMenu>
+        </MudMenu>
+    </Authorized>
+</AuthorizeView>
+
+@code
+{
+    [Parameter] public bool RTL_State { get; set; } = false;
+    [Parameter] public bool IsDarkMode { get; set; } = false;
+
+    [Parameter] public EventCallback<bool> RTL_StateChanged { get; set; }
+    [Parameter] public EventCallback<bool> IsDarkModeChanged { get; set; }
+
+    //protected override void OnInitialized()
+    //{
+    //
+    //}
+
+    //protected override async Task OnParametersSetAsync()
+    //{
+    //}
+
+    public async Task UpdateRTL_State()
+    {
+        await RTL_StateChanged.InvokeAsync(!RTL_State);
+    }
+
+    public async Task UpdateIsDarkMode()
+    {
+        await IsDarkModeChanged.InvokeAsync(!IsDarkMode);
+    }
+}

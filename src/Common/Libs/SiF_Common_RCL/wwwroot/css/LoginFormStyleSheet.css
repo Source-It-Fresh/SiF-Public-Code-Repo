@@ -1,0 +1,76 @@
+﻿/*
+// SourceItFresh - Copyright (C) 2020
+// This SiF file is licensed under v3 of the GNU Affero General Public License.
+*/
+@charset "UTF-8";
+
+/*.box {
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #191919;
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 100px;
+}*/
+
+.box {
+    padding: 30px;
+    text-align: center;
+    -webkit-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+}
+
+    /*.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}*/
+
+    .box input[type="text"],
+    .box input[type="password"] {
+        background: none;
+        border: 0;
+        border: 2px solid #3498db;
+        border-radius: 24px;
+        color: white;
+        display: block;
+        margin: 20px auto;
+        outline: none;
+        padding: 10px 10px;
+        text-align: center;
+        -webkit-transition: 0.25s;
+        -o-transition: 0.25s;
+        transition: 0.25s;
+        width: 250px;
+    }
+
+        .box input[type="text"]:focus,
+        .box input[type="password"]:focus {
+            border-color: #2ecc71;
+            width: 300px;
+        }
+
+    .box input[type="submit"] {
+        background: none;
+        border: 0;
+        border: 2px solid #2ecc71;
+        border-radius: 24px;
+        color: white;
+        cursor: pointer;
+        display: block;
+        margin: 20px auto;
+        outline: none;
+        padding: 14px 40px;
+        text-align: center;
+        -webkit-transition: 0.25s;
+        -o-transition: 0.25s;
+        transition: 0.25s;
+    }
+
+        .box input[type="submit"]:hover {
+            background: #2ecc71;
+        }

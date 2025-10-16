@@ -1,0 +1,93 @@
+﻿@*
+### ### ### ### ### ### ###
+SourceItFresh - Copyright (C) 2020
+This SiF file is licensed under v3 of the GNU Affero General Public License.
+### ### ###
+GNU AGPLv3 lets people do almost anything they want with the project, except distributing closed-source versions.
+
+Permissions of this strongest copyleft license are conditioned on:
+Making available the complete source code of works and modifications,
+ which include larger works using a licensed work, under the same license.
+Copyright and license notices must be preserved.
+Contributors provide an express grant of patent rights.
+When a modified version is used to provide a service over a network,
+ the complete source code of the modified version must be made available.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY,
+ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+### ### ###
+See LICENSE.txt for more details or visit <https://www.gnu.org/licenses/>
+### ### ### ### ### ### ###
+*@
+@using SourceItFresh.Shared.Common
+@*@using SourceItFresh.Areas.Configure_Settings.Services.Interfaces*@
+@using SiF_Common_RCL.Shared.Services
+
+@*@inject ITraderEntitySettingsDataService _TraderEntitySettingsDataService*@
+@inject LocalizationCultureService _LocalizationCultureService
+
+<MudHidden Breakpoint="Breakpoint.Xs">
+    <MudLink Href="#">
+        <MudImage Class="rounded-lg bg-light" Height="60" Src="_content/SiF_Common_RCL/Images/source_logo.png" Alt="Source It Fresh" />
+    </MudLink>
+</MudHidden>
+<MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
+    <MudLink Href="#">
+        <MudImage Height="60" Src="_content/SiF_Common_RCL/Images/sif-logo-sml.png" Alt="Source It Fresh" />
+    </MudLink>
+</MudHidden>
+
+<MudMenu Class="mt-1 ml-4" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft">
+    <ActivatorContent>
+        <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
+            <MudButton StartIcon="@Icons.Material.TwoTone.Info" EndIcon="@Icons.Material.TwoTone.KeyboardArrowDown" DisableElevation="true">@_LocalizationCultureService.GetValue("Bar_Header:Menu:Information")</MudButton>
+        </MudHidden>
+        <MudHidden Breakpoint="Breakpoint.MdAndUp">
+            <MudButton StartIcon="@Icons.Material.TwoTone.Info" DisableElevation="true" />
+        </MudHidden>
+    </ActivatorContent>
+    <ChildContent>
+        <MudMenuItem Class="nav-link" Href="#home">@_LocalizationCultureService.GetValue("Bar_Header:Information:WhatWeDoAndWhy")</MudMenuItem>
+        <MudMenuItem Class="nav-link" Href="#about">@_LocalizationCultureService.GetValue("Bar_Header:Information:AboutUs")</MudMenuItem>
+        <MudMenuItem Class="nav-link" Href="#project">@_LocalizationCultureService.GetValue("Bar_Header:Information:Projects")</MudMenuItem>
+        <MudMenuItem Class="nav-link" Href="#diveIn">@_LocalizationCultureService.GetValue("Bar_Header:Information:WhereToStart")</MudMenuItem>
+        <MudMenuItem Class="nav-link" Href="#price">@_LocalizationCultureService.GetValue("Bar_Header:Information:Price")</MudMenuItem>
+        @*
+        <MudMenuItem Class="nav-Link" href="#team">Meet The Team</MudMenuItem>
+        <MudMenuItem Class="nav-Link" href="#testimonial">Testimonials</MudMenuItem>
+        *@
+        <MudDivider Class="my-1" />
+        <MudNavLink Href="/SiF_Common_RCL/Information/GrowersComponent" Icon="fas fa-hand-holding-water">@_LocalizationCultureService.GetValue("Bar_Header:Information:Producer")</MudNavLink>
+        <MudNavLink Href="/SiF_Common_RCL/Information/SuppliersComponent" Icon="fas fa-parachute-box">@_LocalizationCultureService.GetValue("Bar_Header:Information:Supplier")</MudNavLink>
+        <MudNavLink Href="/SiF_Common_RCL/Information/BuyersComponent" Icon="fas fa-utensils">@_LocalizationCultureService.GetValue("Bar_Header:Information:Consumer")</MudNavLink>
+        <MudDivider Class="my-1" />
+        <MudNavLink Href="/Base_Learn/Wiki/FeaturesComponent" Icon="@Icons.Material.TwoTone.LocalOffer">@_LocalizationCultureService.GetValue("Bar_Header:Information:WikiFeatures")</MudNavLink>
+        <MudNavLink Href="/Base_Learn/Wiki/RoadMapComponent" Icon="fas fa-road">@_LocalizationCultureService.GetValue("Bar_Header:Information:WikiRoadMap")</MudNavLink>
+    </ChildContent>
+</MudMenu>
+
+<MudMenu Class="mt-1 ml-4" AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
+    <ActivatorContent>
+        <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
+            <MudButton StartIcon="@Icons.Material.TwoTone.MenuBook" EndIcon="@Icons.Material.TwoTone.KeyboardArrowDown"  DisableElevation="true">@_LocalizationCultureService.GetValue("Bar_Header:Menu:Explore")</MudButton>
+        </MudHidden>
+        <MudHidden Breakpoint="Breakpoint.MdAndUp">
+            <MudButton StartIcon="@Icons.Material.TwoTone.MenuBook" DisableElevation="true" />
+        </MudHidden>
+    </ActivatorContent>
+    <ChildContent>
+        <MudNavLink Href="/Base_Discover/PlantInfoDataBaseComponent" Icon="fas fa-database">@_LocalizationCultureService.GetValue("Bar_Header:Explore:PlantInfoDataBase")</MudNavLink>
+        <MudDivider Class="my-1" />
+        <MudNavLink Href="/Base_Discover/JargonExplainedComponent" Icon="fas fa-book">@_LocalizationCultureService.GetValue("Bar_Header:Explore:JargonExplained")</MudNavLink>
+        <MudDivider Class="my-1" />
+        <MudNavLink Href="/Base_Learn/Wiki/HelpfulLinksComponent" Icon="fas fa-external-link-square-alt">@_LocalizationCultureService.GetValue("Bar_Header:Explore:WikiHelpfulLinks")</MudNavLink>
+        <MudNavLink Href="/Base_Learn/Wiki/DIYComponent" Icon="fas fa-universal-access">@_LocalizationCultureService.GetValue("Bar_Header:Explore:WikiDIY")</MudNavLink>
+    </ChildContent>
+</MudMenu>
+
+@*
+    <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+*@

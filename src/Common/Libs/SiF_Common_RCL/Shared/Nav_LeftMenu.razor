@@ -1,0 +1,74 @@
+﻿@*
+### ### ### ### ### ### ###
+SourceItFresh - Copyright (C) 2020
+This SiF file is licensed under v3 of the GNU Affero General Public License.
+### ### ###
+GNU AGPLv3 lets people do almost anything they want with the project, except distributing closed-source versions.
+
+Permissions of this strongest copyleft license are conditioned on:
+Making available the complete source code of works and modifications,
+ which include larger works using a licensed work, under the same license.
+Copyright and license notices must be preserved.
+Contributors provide an express grant of patent rights.
+When a modified version is used to provide a service over a network,
+ the complete source code of the modified version must be made available.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY,
+ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+### ### ###
+See LICENSE.txt for more details or visit <https://www.gnu.org/licenses/>
+### ### ### ### ### ### ###
+*@
+@using SiF_Common_RCL
+@using SiF_Common_RCL.Shared.Services
+
+@inject LocalizationCultureService _LocalizationCultureService
+@inject NavigationManager _NavigationManager
+
+<MudNavMenu Color="Color.Info" Bordered="true" Rounded="true">
+    @*<AuthorizeView Roles="SystemAdmin, PowerUser" Policy="ViewExampleSpace">*@
+    <AuthorizeView>
+        <MudNavLink Href="/Core_Login/MainLandingComponent" Icon="fas fa-home fa-fw" title="Home">@_LocalizationCultureService.GetValue("NavMenu:MainLanding")</MudNavLink>
+    </AuthorizeView>
+
+    @*<AuthorizeView Roles="SystemAdmin, PowerUser" Policy="ViewExampleSpace">*@
+    <AuthorizeView>
+        <MudDivider Class="mb-1" />
+        <MudNavGroup Title="@_LocalizationCultureService.GetValue("NavMenu:Manage")" Icon="fas fa-project-diagram fa-fw" Expanded="true">
+            <MudNavLink Href="/Manage_Farm/FarmLayoutComponent" Icon="fas fa-seedling fa-fw" title="Manage Farm">@_LocalizationCultureService.GetValue("NavMenu:Production")</MudNavLink>
+            <MudNavLink Href="/Manage_Commodities/CommoditiesOverviewComponent" Icon="fas fa-warehouse fa-fw" title="Manage Commodities">@_LocalizationCultureService.GetValue("NavMenu:Products")</MudNavLink>
+        </MudNavGroup>
+    </AuthorizeView>
+
+    @*<AuthorizeView Roles="SystemAdmin, PowerUser" Policy="ViewExampleSpace">*@
+    <AuthorizeView>
+        <MudDivider Class="mb-1" />
+        <MudNavGroup Title="@_LocalizationCultureService.GetValue("NavMenu:Marketplace")" Icon="fas fa-store fa-fw" Expanded="true">
+            <MudNavLink Href="/Market_Vendor/StorefrontComponent" Icon="fas fa-cash-register fa-fw" title="Vendor">@_LocalizationCultureService.GetValue("Bar_Header:Information:Supplier")</MudNavLink>
+            <MudNavLink Href="/Market_Consumer/BuyerShopComponent" Icon="fas fa-shopping-cart fa-fw" title="Consumer">@_LocalizationCultureService.GetValue("Bar_Header:Information:Consumer")</MudNavLink>
+            <MudNavLink Disabled="true" Href="#" Icon="@Icons.Material.TwoTone.DynamicForm">QuotesGenerate_#Invoices</MudNavLink>
+        </MudNavGroup>
+    </AuthorizeView>
+
+    @*<AuthorizeView Roles="SystemAdmin, PowerUser" Policy="ViewExampleSpace">*@
+    <AuthorizeView>
+        <MudDivider Class="mb-1" />
+        <MudNavGroup Title="@_LocalizationCultureService.GetValue("NavMenu:Community")" Icon="fas fa-handshake fa-fw" HideExpandIcon="false" Expanded="false">
+            <MudNavLink Disabled="true" Target="_blank" Href="/zTest/Index/Temp" Icon="fas fa-balance-scale fa-fw" title="Reviews / Rating">Reviews / Rating</MudNavLink>
+            <MudNavLink Disabled="true" Target="_blank" Href="/zTest/Index/Temp" Icon="fab fa-discord fa-fw" title="Join us on discord">Social Forums</MudNavLink>
+            @*<MudNavLink Disabled="true" Target="_blank" Href="https://freedomcells.org/" Icon="fas fa-external-link-alt fa-fw" title="freedomcells">freedomcells</MudNavLink>*@
+            <MudNavLink Target="_blank" Href="https://www.onezoom.org/life_MDtouch/?lang=en" Icon="@Icons.Material.TwoTone.NaturePeople" title="onezoom">Tree Of Life</MudNavLink>
+        </MudNavGroup>
+    </AuthorizeView>
+
+    <MudHidden Hidden="@_ShowMenuItem">
+        <MudDivider Class="mb-1" />
+        <MudNavLink Class="nav-link" Href="/TestEndPoints" Icon="fas fa-compass fa-fw" title="Temp Nav List">Temp Nav List</MudNavLink>
+    </MudHidden>
+
+</MudNavMenu>
+
+@code
+{
+    private bool _ShowMenuItem = true; //ToDo: get from service
+}

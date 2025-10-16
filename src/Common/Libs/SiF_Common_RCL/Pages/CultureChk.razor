@@ -1,0 +1,242 @@
+﻿@*
+### ### ### ### ### ### ###
+SourceItFresh - Copyright (C) 2020
+This SiF file is licensed under v3 of the GNU Affero General Public License.
+### ### ###
+GNU AGPLv3 lets people do almost anything they want with the project, except distributing closed-source versions.
+
+Permissions of this strongest copyleft license are conditioned on:
+Making available the complete source code of works and modifications,
+ which include larger works using a licensed work, under the same license.
+Copyright and license notices must be preserved.
+Contributors provide an express grant of patent rights.
+When a modified version is used to provide a service over a network,
+ the complete source code of the modified version must be made available.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY,
+ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+### ### ###
+See LICENSE.txt for more details or visit <https://www.gnu.org/licenses/>
+### ### ### ### ### ### ###
+*@
+@page "/CultureChk"
+
+@using System.Globalization
+@using Microsoft.Extensions.Localization
+@using SourceItFresh.Shared.Common
+@using SiF_Common_RCL.Shared.Services
+
+@inject LocalizationCultureService _LocalizationCultureService
+
+@*@attribute [Authorize]*@
+@*@namespace SourceItFresh.Areas.SiF_Common_RCL.Components*@
+
+@{
+    string Header = "Culture Info";
+}
+
+<PageTitle>@Header</PageTitle>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+
+<CollapsibleCard Collapsed="false" CardHeaderTitle="@Header" ShowFooter="true">
+    <CardBodyContent>
+
+        <MudGrid Spacing="2" Justify="Justify.Center">
+            <MudItem xs="12" md="6">
+                <CollapsibleCard Collapsed="false" CardHeaderTitle="CurrentCulture:" ShowFooter="false">
+                    <CardBodyContent>
+                        <ul>
+                            <li><label><b>CultureInfo.CurrentCulture.DisplayName:</b>@CultureInfo.CurrentCulture.DisplayName</label></li>
+                            <li><label><b>CultureInfo.CurrentCulture.EnglishName:</b>@CultureInfo.CurrentCulture.EnglishName</label></li>
+                            <li><label><b>CultureInfo.CurrentCulture.IetfLanguageTag:</b>@CultureInfo.CurrentCulture.IetfLanguageTag</label></li>
+                            <li><label><b>CultureInfo.CurrentCulture.IsNeutralCulture:</b>@CultureInfo.CurrentCulture.IsNeutralCulture</label></li>
+                            <li><label><b>CultureInfo.CurrentCulture.IsReadOnly:</b>@CultureInfo.CurrentCulture.IsReadOnly</label></li>
+                            <li><label><b>CultureInfo.CurrentCulture.Name:</b>@CultureInfo.CurrentCulture.Name</label></li>
+                            <li><label><b>CultureInfo.CurrentCulture.NativeName:</b>@CultureInfo.CurrentCulture.NativeName</label></li>
+                            <li><label><b>CultureInfo.CurrentCulture.ThreeLetterISOLanguageName:</b>@CultureInfo.CurrentCulture.ThreeLetterISOLanguageName</label></li>
+                            <li><label><b>CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName:</b>@CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName</label></li>
+                            <li><label><b>CultureInfo.CurrentCulture.TwoLetterISOLanguageName:</b>@CultureInfo.CurrentCulture.TwoLetterISOLanguageName</label></li>
+                            <li><label><b>CultureInfo.CurrentCulture.UseUserOverride:</b>@CultureInfo.CurrentCulture.UseUserOverride</label></li>
+                        </ul>
+                    </CardBodyContent>
+                </CollapsibleCard>
+            </MudItem>
+            <MudItem xs="12" md="6">
+                <CollapsibleCard Collapsed="false" CardHeaderTitle="CurrentUICulture:" ShowFooter="false">
+                    <CardBodyContent>
+                        <ul>
+                            <li><label><b>CultureInfo.CurrentUICulture.DisplayName:</b>@CultureInfo.CurrentUICulture.DisplayName</label></li>
+                            <li><label><b>CultureInfo.CurrentUICulture.EnglishName:</b>@CultureInfo.CurrentUICulture.EnglishName</label></li>
+                            <li><label><b>CultureInfo.CurrentUICulture.IetfLanguageTag:</b>@CultureInfo.CurrentUICulture.IetfLanguageTag</label></li>
+                            <li><label><b>CultureInfo.CurrentUICulture.IsNeutralCulture:</b>@CultureInfo.CurrentUICulture.IsNeutralCulture</label></li>
+                            <li><label><b>CultureInfo.CurrentUICulture.IsReadOnly:</b>@CultureInfo.CurrentUICulture.IsReadOnly</label></li>
+                            <li><label><b>CultureInfo.CurrentUICulture.Name:</b>@CultureInfo.CurrentUICulture.Name</label></li>
+                            <li><label><b>CultureInfo.CurrentUICulture.NativeName:</b>@CultureInfo.CurrentUICulture.NativeName</label></li>
+                            <li><label><b>CultureInfo.CurrentUICulture.ThreeLetterISOLanguageName:</b>@CultureInfo.CurrentUICulture.ThreeLetterISOLanguageName</label></li>
+                            <li><label><b>CultureInfo.CurrentUICulture.ThreeLetterWindowsLanguageName:</b>@CultureInfo.CurrentUICulture.ThreeLetterWindowsLanguageName</label></li>
+                            <li><label><b>CultureInfo.CurrentUICulture.TwoLetterISOLanguageName:</b>@CultureInfo.CurrentUICulture.TwoLetterISOLanguageName</label></li>
+                            <li><label><b>CultureInfo.CurrentUICulture.UseUserOverride:</b>@CultureInfo.CurrentUICulture.UseUserOverride</label></li>
+                        </ul>
+                    </CardBodyContent>
+                </CollapsibleCard>
+            </MudItem>
+            <MudItem xs="12" md="6">
+                <CollapsibleCard Collapsed="false" CardHeaderTitle="CurrentThread.CurrentCulture:" ShowFooter="false">
+                    <CardBodyContent>
+                        <ul>
+                            <li><label><b>CurrentThread.CurrentCulture.DisplayName:</b>@Thread.CurrentThread.CurrentCulture.DisplayName</label></li>
+                            <li><label><b>CurrentThread.CurrentCulture.EnglishName:</b>@Thread.CurrentThread.CurrentCulture.EnglishName</label></li>
+                            <li><label><b>CurrentThread.CurrentCulture.IetfLanguageTag:</b>@Thread.CurrentThread.CurrentCulture.IetfLanguageTag</label></li>
+                            <li><label><b>CurrentThread.CurrentCulture.IsNeutralCulture:</b>@Thread.CurrentThread.CurrentCulture.IsNeutralCulture</label></li>
+                            <li><label><b>CurrentThread.CurrentCulture.IsReadOnly:</b>@Thread.CurrentThread.CurrentCulture.IsReadOnly</label></li>
+                            <li><label><b>CurrentThread.CurrentCulture.Name:</b>@Thread.CurrentThread.CurrentCulture.Name</label></li>
+                            <li><label><b>CurrentThread.CurrentCulture.NativeName:</b>@Thread.CurrentThread.CurrentCulture.NativeName</label></li>
+                            <li><label><b>CurrentThread.CurrentCulture.ThreeLetterISOLanguageName:</b>@Thread.CurrentThread.CurrentCulture.ThreeLetterISOLanguageName</label></li>
+                            <li><label><b>CurrentThread.CurrentCulture.ThreeLetterWindowsLanguageName:</b>@Thread.CurrentThread.CurrentCulture.ThreeLetterWindowsLanguageName</label></li>
+                            <li><label><b>CurrentThread.CurrentCulture.TwoLetterISOLanguageName:</b>@Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName</label></li>
+                            <li><label><b>CurrentThread.CurrentCulture.UseUserOverride:</b>@Thread.CurrentThread.CurrentCulture.UseUserOverride</label></li>
+                        </ul>
+                    </CardBodyContent>
+                </CollapsibleCard>
+            </MudItem>
+            <MudItem xs="12" md="6">
+                <CollapsibleCard Collapsed="false" CardHeaderTitle="CurrentThread.CurrentUICulture:" ShowFooter="false">
+                    <CardBodyContent>
+                        <ul>
+                            <li><label><b>CurrentThread.CurrentUICulture.DisplayName:</b>@Thread.CurrentThread.CurrentUICulture.DisplayName</label></li>
+                            <li><label><b>CurrentThread.CurrentUICulture.EnglishName:</b>@Thread.CurrentThread.CurrentUICulture.EnglishName</label></li>
+                            <li><label><b>CurrentThread.CurrentUICulture.IetfLanguageTag:</b>@Thread.CurrentThread.CurrentUICulture.IetfLanguageTag</label></li>
+                            <li><label><b>CurrentThread.CurrentUICulture.IsNeutralCulture:</b>@Thread.CurrentThread.CurrentUICulture.IsNeutralCulture</label></li>
+                            <li><label><b>CurrentThread.CurrentUICulture.IsReadOnly:</b>@Thread.CurrentThread.CurrentUICulture.IsReadOnly</label></li>
+                            <li><label><b>CurrentThread.CurrentUICulture.Name:</b>@Thread.CurrentThread.CurrentUICulture.Name</label></li>
+                            <li><label><b>CurrentThread.CurrentUICulture.NativeName:</b>@Thread.CurrentThread.CurrentUICulture.NativeName</label></li>
+                            <li><label><b>CurrentThread.CurrentUICulture.ThreeLetterISOLanguageName:</b>@Thread.CurrentThread.CurrentUICulture.ThreeLetterISOLanguageName</label></li>
+                            <li><label><b>CurrentThread.CurrentUICulture.ThreeLetterWindowsLanguageName:</b>@Thread.CurrentThread.CurrentUICulture.ThreeLetterWindowsLanguageName</label></li>
+                            <li><label><b>CurrentThread.CurrentUICulture.TwoLetterISOLanguageName:</b>@Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName</label></li>
+                            <li><label><b>CurrentThread.CurrentUICulture.UseUserOverride:</b>@Thread.CurrentThread.CurrentUICulture.UseUserOverride</label></li>
+                        </ul>
+                    </CardBodyContent>
+                </CollapsibleCard>
+            </MudItem>
+        </MudGrid>
+
+    </CardBodyContent>
+</CollapsibleCard>
+
+
+<h2>Rendered values</h2>
+
+<ul>
+    <li><b>Date</b>: @dt</li>
+    <li><b>Number</b>: @number.ToString("N2")</li>
+</ul>
+
+<h2><code>&lt;input&gt;</code> elements that don't set a <code>type</code></h2>
+
+<p>
+    The following <code>&lt;input&gt;</code> elements use
+    <code>CultureInfo.CurrentCulture</code>.
+</p>
+
+<ul>
+    <li><label><b>Date:</b> <input @bind="dt" /></label></li>
+    <li><label><b>Number:</b> <input @bind="number" /></label></li>
+</ul>
+
+<h2><code>&lt;input&gt;</code> elements that set a <code>type</code></h2>
+
+<p>
+    The following <code>&lt;input&gt;</code> elements use
+    <code>CultureInfo.InvariantCulture</code>.
+</p>
+
+<ul>
+    <li><label><b>Date:</b> <input type="date" @bind="dt" /></label></li>
+    <li><label><b>Number:</b> <input type="number" @bind="number" /></label></li>
+</ul>
+
+<p>
+    <b>Discover</b>: @Discover
+</p>
+<p>
+    <b>Learn</b>: @Learn
+</p>
+<p>
+    <b>Help</b>: @Help
+</p>
+<p>
+    <b>Identity</b>: @Identity
+</p>
+<p>
+    <b>Login</b>: @Login
+</p>
+<p>
+    <b>AddIns</b>: @AddIns
+</p>
+<p>
+    <b>PaidServices</b>: @PaidServices
+</p>
+<p>
+    <b>Setting</b>: @Setting
+</p>
+<p>
+    <b>Commodities</b>: @Commodities
+</p>
+<p>
+    <b>Farm</b>: @Farm
+</p>
+<p>
+    <b>Accounts</b>: @Accounts
+</p>
+<p>
+    <b>ActionLogs</b>: @ActionLogs
+</p>
+<p>
+    <b>TraderEntity</b>: @TraderEntity
+</p>
+<p>
+    <b>Consumer</b>: @Consumer
+</p>
+<p>
+    <b>Vendor</b>: @Vendor
+</p>
+
+@code {
+    private DateTime dt = DateTime.Now;
+    private double number = 1999.69;
+
+    public string? Discover;
+    public string? Learn;
+    public string? Help;
+    public string? Identity;
+    public string? Login;
+    public string? AddIns;
+    public string? PaidServices;
+    public string? Setting;
+    public string? Commodities;
+    public string? Farm;
+    public string? Accounts;
+    public string? ActionLogs;
+    public string? TraderEntity;
+    public string? Consumer;
+    public string? Vendor;
+
+    protected override void OnInitialized()
+    {
+        Discover = _LocalizationCultureService.GetValue("Areas:Base:Discover");
+        Learn = _LocalizationCultureService.GetValue("Areas:Base:Learn");
+        Help = _LocalizationCultureService.GetValue("Areas:Core:Help");
+        Identity = _LocalizationCultureService.GetValue("Areas:Core:Identity");
+        Login = _LocalizationCultureService.GetValue("Areas:Core:Login");
+        AddIns = _LocalizationCultureService.GetValue("Base:Configure:AddIns");
+        PaidServices = _LocalizationCultureService.GetValue("Base:Configure:PaidServices");
+        Setting = _LocalizationCultureService.GetValue("Base:Configure:Setting");
+        Commodities = _LocalizationCultureService.GetValue("Base:Manage:Commodities");
+        Farm = _LocalizationCultureService.GetValue("Base:Manage:Farm");
+        Accounts = _LocalizationCultureService.GetValue("Base:ManageOrg:Accounts");
+        ActionLogs = _LocalizationCultureService.GetValue("Base:ManageOrg:ActionLogs");
+        TraderEntity = _LocalizationCultureService.GetValue("Base:ManageOrg:TraderEntity");
+        Consumer = _LocalizationCultureService.GetValue("Base:Market:Consumer");
+        Vendor = _LocalizationCultureService.GetValue("Base:Market:Vendor");
+    }
+}

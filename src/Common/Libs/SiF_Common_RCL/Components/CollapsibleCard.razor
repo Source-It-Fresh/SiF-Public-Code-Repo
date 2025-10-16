@@ -1,0 +1,90 @@
+﻿@*
+### ### ### ### ### ### ###
+SourceItFresh - Copyright (C) 2020
+This SiF file is licensed under v3 of the GNU Affero General Public License.
+### ### ###
+GNU AGPLv3 lets people do almost anything they want with the project, except distributing closed-source versions.
+
+Permissions of this strongest copyleft license are conditioned on:
+Making available the complete source code of works and modifications,
+ which include larger works using a licensed work, under the same license.
+Copyright and license notices must be preserved.
+Contributors provide an express grant of patent rights.
+When a modified version is used to provide a service over a network,
+ the complete source code of the modified version must be made available.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY,
+ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+### ### ###
+See LICENSE.txt for more details or visit <https://www.gnu.org/licenses/>
+### ### ### ### ### ### ###
+*@
+@*ToDo: Add as Layout*@
+
+@using System.Net.Http
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.JSInterop
+
+@using MudBlazor
+@*@using MudBlazor.ThemeManager*@
+
+@using SourceItFresh.Shared.Common
+@using SourceItFresh.Components
+@using SourceItFresh.Components.Shared
+@*@using SourceItFresh.Areas.Shared.Services*@
+@*@using SourceItFresh.Areas.Shared.Services.Interfaces*@
+
+@attribute [AllowAnonymous]
+@namespace SourceItFresh.Components.Shared
+
+<MudPaper>
+    <MudExpansionPanel Class="mb-2" Expanded="@(!Collapsed)">
+        <TitleContent>
+            <MudElement Class="d-flex flex-row">
+                @if (!string.IsNullOrWhiteSpace(CardHeaderIcon))
+                {
+                    <MudIcon Class="d-inline-flex pr-1" Icon="@CardHeaderIcon"></MudIcon>
+                }
+                <MudText Class="d-inline-flex pl-1" Typo="Typo.h6">@CardHeaderTitle</MudText>
+            </MudElement>
+            @*<MudDivider DividerType="DividerType.Middle" />*@
+        </TitleContent>
+        <ChildContent>
+
+            <ErrorBoundary>
+                <ChildContent>
+
+                    <MudGrid Spacing="2" Justify="Justify.Center" Style="@DialogStyle">
+                        <MudItem xs="12">
+                            <MudElement Class="@BodyClass">
+                                @CardBodyContent
+                            </MudElement>
+                        </MudItem>
+
+                        @if (ShowFooter)
+                        {
+                            <MudItem xs="12">
+                                @*<MudDivider />*@
+                                <MudElement Class="@BodyClass">
+                                    @CardFooterContent
+                                </MudElement>
+                            </MudItem>
+                        }
+                    </MudGrid>
+
+                </ChildContent>
+                <ErrorContent>
+                    <ErrorBoundary>
+                        <ErrorBoundaryContent />
+                    </ErrorBoundary>
+                </ErrorContent>
+            </ErrorBoundary>
+
+        </ChildContent>
+    </MudExpansionPanel>
+</MudPaper>

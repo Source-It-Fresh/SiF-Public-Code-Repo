@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Bar_Footer:PrivacyLegal" xml:space="preserve">
+    <value>Privacy &amp; Legal</value>
+    <comment>Bar_Footer</comment>
+  </data>
+  <data name="Bar_Header:Explore:JargonExplained" xml:space="preserve">
+    <value>Jargon Explained</value>
+    <comment>Bar_Header:Explore</comment>
+  </data>
+  <data name="Bar_Header:Explore:PlantInfoDataBase" xml:space="preserve">
+    <value>Plant Info DataBase</value>
+    <comment>Bar_Header:Explore</comment>
+  </data>
+  <data name="Bar_Header:Explore:WikiDIY" xml:space="preserve">
+    <value>Wiki: DIY</value>
+    <comment>Bar_Header:Explore:Wiki</comment>
+  </data>
+  <data name="Bar_Header:Explore:WikiHelpfulLinks" xml:space="preserve">
+    <value>Wiki: Helpful Links</value>
+    <comment>Bar_Header:Explore:Wiki</comment>
+  </data>
+  <data name="Bar_Header:Information:AboutUs" xml:space="preserve">
+    <value>About Us</value>
+    <comment>Bar_Header:Information</comment>
+  </data>
+  <data name="Bar_Header:Information:Consumer" xml:space="preserve">
+    <value>Consumer</value>
+    <comment>Bar_Header:Information</comment>
+  </data>
+  <data name="Bar_Header:Information:MeetTheTeam" xml:space="preserve">
+    <value>Meet The Team</value>
+    <comment>Bar_Header:Information</comment>
+  </data>
+  <data name="Bar_Header:Information:Price" xml:space="preserve">
+    <value>Price</value>
+    <comment>Bar_Header:Information</comment>
+  </data>
+  <data name="Bar_Header:Information:Producer" xml:space="preserve">
+    <value>Producer</value>
+    <comment>Bar_Header:Information</comment>
+  </data>
+  <data name="Bar_Header:Information:Projects" xml:space="preserve">
+    <value>Projects</value>
+    <comment>Bar_Header:Information</comment>
+  </data>
+  <data name="Bar_Header:Information:Supplier" xml:space="preserve">
+    <value>Supplier</value>
+    <comment>Bar_Header:Information</comment>
+  </data>
+  <data name="Bar_Header:Information:Testimonials" xml:space="preserve">
+    <value>Testimonials</value>
+    <comment>Bar_Header:Information</comment>
+  </data>
+  <data name="Bar_Header:Information:WhatWeDoAndWhy" xml:space="preserve">
+    <value>What we do &amp; Why</value>
+    <comment>Bar_Header:Information</comment>
+  </data>
+  <data name="Bar_Header:Information:WhereToStart" xml:space="preserve">
+    <value>Where To Start</value>
+    <comment>Bar_Header:Information</comment>
+  </data>
+  <data name="Bar_Header:Information:WikiFeatures" xml:space="preserve">
+    <value>Wiki: Features</value>
+    <comment>Bar_Header:Information:Wiki</comment>
+  </data>
+  <data name="Bar_Header:Information:WikiRoadMap" xml:space="preserve">
+    <value>Wiki: RoadMap</value>
+    <comment>Bar_Header:Information:Wiki</comment>
+  </data>
+  <data name="Bar_Header:Menu:Explore" xml:space="preserve">
+    <value>Explore</value>
+    <comment>Bar_Header:Menu</comment>
+  </data>
+  <data name="Bar_Header:Menu:Information" xml:space="preserve">
+    <value>Information</value>
+    <comment>Bar_Header:Menu</comment>
+  </data>
+  <data name="Configure:AddIns" xml:space="preserve">
+    <value>Add-Ins</value>
+    <comment>Configure:Menu</comment>
+  </data>
+  <data name="Configure:Configure" xml:space="preserve">
+    <value>Configure</value>
+    <comment>Configure:Menu</comment>
+  </data>
+  <data name="Configure:PaidServices" xml:space="preserve">
+    <value>Paid Services</value>
+    <comment>Configure:Menu</comment>
+  </data>
+  <data name="Configure:Settings" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Configure:Menu</comment>
+  </data>
+  <data name="LoginDisplay:Authorized:LogOut" xml:space="preserve">
+    <value>Log out</value>
+    <comment>LoginDisplay:Authorized</comment>
+  </data>
+  <data name="LoginDisplay:Help:ApplicationDetails" xml:space="preserve">
+    <value>Application Details</value>
+    <comment>LoginDisplay:Help</comment>
+  </data>
+  <data name="LoginDisplay:Help:ApplicationGuide" xml:space="preserve">
+    <value>Application Guide</value>
+    <comment>LoginDisplay:Help</comment>
+  </data>
+  <data name="LoginDisplay:Help:FunctionsAndActions" xml:space="preserve">
+    <value>Functions &amp; Actions</value>
+    <comment>LoginDisplay:Help</comment>
+  </data>
+  <data name="LoginDisplay:Help:ReportAnIssue" xml:space="preserve">
+    <value>Report an issue</value>
+    <comment>LoginDisplay:Help</comment>
+  </data>
+  <data name="LoginDisplay:Help:ShareFeedbackIdeas" xml:space="preserve">
+    <value>Share Feedback &amp; Ideas</value>
+    <comment>LoginDisplay:Help</comment>
+  </data>
+  <data name="LoginDisplay:Menu:Help" xml:space="preserve">
+    <value>Help</value>
+    <comment>LoginDisplay:Menu</comment>
+  </data>
+  <data name="LoginDisplay:NotAuthorized:LogIn" xml:space="preserve">
+    <value>Log in</value>
+    <comment>LoginDisplay:NotAuthorized</comment>
+  </data>
+  <data name="LoginDisplay:NotAuthorized:Register" xml:space="preserve">
+    <value>Register</value>
+    <comment>LoginDisplay:Register</comment>
+  </data>
+  <data name="NavMenu:Commodities" xml:space="preserve">
+    <value>Commodities</value>
+    <comment>NavMenu</comment>
+  </data>
+  <data name="NavMenu:Community" xml:space="preserve">
+    <value>Community</value>
+    <comment>NavMenu</comment>
+  </data>
+  <data name="NavMenu:Farm" xml:space="preserve">
+    <value>Farm</value>
+    <comment>NavMenu</comment>
+  </data>
+  <data name="NavMenu:MainLanding" xml:space="preserve">
+    <value>Main Landing</value>
+    <comment>NavMenu</comment>
+  </data>
+  <data name="NavMenu:Manage" xml:space="preserve">
+    <value>Manage</value>
+    <comment>NavMenu</comment>
+  </data>
+  <data name="NavMenu:Marketplace" xml:space="preserve">
+    <value>Market</value>
+    <comment>NavMenu</comment>
+  </data>
+  <data name="NavMenu:Production" xml:space="preserve">
+    <value>Production</value>
+    <comment>NavMenu</comment>
+  </data>
+  <data name="NavMenu:Products" xml:space="preserve">
+    <value>Products</value>
+    <comment>NavMenu</comment>
+  </data>
+  <data name="NavMenu:Public" xml:space="preserve">
+    <value>Public</value>
+    <comment>NavMenu</comment>
+  </data>
+  <data name="TraderEntity:ActionsLog" xml:space="preserve">
+    <value>Actions Log</value>
+    <comment>TraderEntity:Menu</comment>
+  </data>
+  <data name="TraderEntity:CreateNew" xml:space="preserve">
+    <value>Create New</value>
+    <comment>TraderEntity:Menu</comment>
+  </data>
+  <data name="TraderEntity:Security" xml:space="preserve">
+    <value>Security</value>
+    <comment>TraderEntity:Menu</comment>
+  </data>
+  <data name="TraderEntity:TraderEntity" xml:space="preserve">
+    <value>Trader Entity</value>
+    <comment>TraderEntity:Menu</comment>
+  </data>
+  <data name="User:Calendar" xml:space="preserve">
+    <value>Calendar</value>
+    <comment>User:Menu</comment>
+  </data>
+  <data name="User:Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+    <comment>User:Menu</comment>
+  </data>
+  <data name="User:Notifications" xml:space="preserve">
+    <value>Notifications</value>
+    <comment>User:Menu</comment>
+  </data>
+  <data name="User:Profile" xml:space="preserve">
+    <value>Profile</value>
+    <comment>User:Menu</comment>
+  </data>
+  <data name="User:Tasks" xml:space="preserve">
+    <value>Tasks</value>
+    <comment>User:Menu</comment>
+  </data>
+</root>

@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>c68b9293-ca90-44e3-b193-4507981b6f62</UserSecretsId>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <DockerfileContext>..\..\..</DockerfileContext>
+
+        <Title>$(AssemblyName)</Title>
+        <Authors>Source_It_Fresh</Authors>
+        <ApplicationIcon>favicon.ico</ApplicationIcon>
+        <PackageIcon>SIF_Logo_310x310.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Copyright>SiF - Copyleft (C) 2020 - GNU Affero General Public License v3.0</Copyright>
+        <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://www.sourceitfresh.com/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Source-It-Fresh/</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="favicon.ico" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\..\..\Other\SiF_Shared_Project\SIF_Logo_310x310.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.8" />
+        <PackageReference Include="Microsoft.Extensions.Http.Resilience" Version="9.8.0" />
+        <PackageReference Include="Microsoft.Extensions.Resilience" Version="9.8.0" />
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
+        <PackageReference Include="Scalar.AspNetCore" Version="2.6.9" />
+        <PackageReference Include="SonarAnalyzer.CSharp" Version="10.15.0.120848">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="9.0.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="9.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\SiF_Main_Solution.ServiceDefaults\SiF_Main_Solution.ServiceDefaults.csproj" />
+        <ProjectReference Include="..\..\Libs\SiF_Standard_ClassLibrary\SiF_Standard_ClassLibrary.csproj" />
+    </ItemGroup>
+
+</Project>

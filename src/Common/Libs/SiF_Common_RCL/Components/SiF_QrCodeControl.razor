@@ -1,0 +1,57 @@
+﻿@*
+### ### ### ### ### ### ###
+SourceItFresh - Copyright (C) 2020
+This SiF file is licensed under v3 of the GNU Affero General Public License.
+### ### ###
+GNU AGPLv3 lets people do almost anything they want with the project, except distributing closed-source versions.
+
+Permissions of this strongest copyleft license are conditioned on:
+Making available the complete source code of works and modifications,
+ which include larger works using a licensed work, under the same license.
+Copyright and license notices must be preserved.
+Contributors provide an express grant of patent rights.
+When a modified version is used to provide a service over a network,
+ the complete source code of the modified version must be made available.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY,
+ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+### ### ###
+See LICENSE.txt for more details or visit <https://www.gnu.org/licenses/>
+### ### ### ### ### ### ###
+*@
+@using System.Net.Http
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.JSInterop
+
+@using MudBlazor
+@*@using MudBlazor.ThemeManager*@
+
+@using SourceItFresh.Shared.Common
+@using SourceItFresh.Components
+@using SourceItFresh.Components.Shared
+@*@using SourceItFresh.Areas.Shared.Services*@
+@*@using SourceItFresh.Areas.Shared.Services.Interfaces*@
+
+@attribute [AllowAnonymous]
+@namespace SourceItFresh.Components.Shared
+
+
+<MudPaper>
+    <ErrorBoundary>
+        <ChildContent>
+
+            <img style="width:100px;height:100px; object-fit:fill;" src="data:image/*;base64,@(Convert.ToBase64String(_QrByteArray3))" title="@UrlLnik" @onclick="@(() => OpenDialogAsync())" />
+
+        </ChildContent>
+        <ErrorContent>
+            <ErrorBoundary>
+                <ErrorBoundaryContent />
+            </ErrorBoundary>
+        </ErrorContent>
+    </ErrorBoundary>
+</MudPaper>
