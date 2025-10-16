@@ -1,0 +1,6 @@
+@SiF_ASPNetCore_Helper_WebAPI_HostAddress = https://localhost:7841
+
+GET {{SiF_ASPNetCore_Helper_WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

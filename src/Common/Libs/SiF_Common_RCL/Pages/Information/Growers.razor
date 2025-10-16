@@ -1,0 +1,176 @@
+﻿@*
+### ### ### ### ### ### ###
+SourceItFresh - Copyright (C) 2020
+This SiF file is licensed under v3 of the GNU Affero General Public License.
+### ### ###
+GNU AGPLv3 lets people do almost anything they want with the project, except distributing closed-source versions.
+
+Permissions of this strongest copyleft license are conditioned on:
+Making available the complete source code of works and modifications,
+ which include larger works using a licensed work, under the same license.
+Copyright and license notices must be preserved.
+Contributors provide an express grant of patent rights.
+When a modified version is used to provide a service over a network,
+ the complete source code of the modified version must be made available.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY,
+ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+### ### ###
+See LICENSE.txt for more details or visit <https://www.gnu.org/licenses/>
+### ### ### ### ### ### ###
+*@
+@page "/SiF_Common_RCL/Information/GrowersComponent"
+
+@*@layout _LayoutSite*@
+
+@using System.Net.Http
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.JSInterop
+
+@using MudBlazor
+@*@using MudBlazor.ThemeManager*@
+
+@using SiF_Common_RCL
+@using SiF_Common_RCL.Shared.Services
+@using SourceItFresh.Shared.Common
+@using SourceItFresh.Components
+@using SourceItFresh.Components.Shared
+@using System.Globalization
+
+@inject IStringLocalizer<Growers> _StringLocalizer
+@inject LocalizationCultureService _LocalizationCultureService
+@inject NavigationManager _NavigationManager
+@*@inject IPPPsService PPPsService*@
+@*@inject IJSRuntime _JSRuntime*@
+
+@attribute [AllowAnonymous]
+@*@namespace SourceItFresh*@
+
+@{
+    //Layout = "_LayoutSite";
+    string Header = _LocalizationCultureService.GetValue("Bar_Header:Information:Producer");
+}
+
+<PageTitle>@Header</PageTitle>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+
+<_AreaNav NavBreadcrumbs="@_navBreadcrumbs" />
+<CollapsibleCard Collapsed="false" CardHeaderIcon="fas fa-hand-holding-water" CardHeaderTitle="@Header" ShowFooter="false">
+    <CardBodyContent>
+        <MudGrid>
+            <MudItem xs="12">
+                <MudGrid>
+                    <MudItem xs="12" md="8">
+                        <MudText Typo="Typo.h4">@_StringLocalizer["Heading001"]</MudText>
+                        <MudText Typo="Typo.body2">
+                            @_StringLocalizer["Details001.1"]<br />
+                            @_StringLocalizer["Details001.2"]<br />
+                        </MudText>
+                    </MudItem>
+                    <MudItem xs="4">
+                        <MudImage Class="img-fluid rounded-lg p-3 mt-4 mb-2" Src="_content/SiF_Common_RCL/Images/veggarden2.jpg" Alt="Produce something fabulous" />
+                    </MudItem>
+                </MudGrid>
+            </MudItem>
+            <MudItem xs="12">
+                <MudGrid>
+                    <MudItem xs="12" md="8">
+                        <MudText Typo="Typo.h4">@_StringLocalizer["Heading002"]</MudText>
+                        <MudText Typo="Typo.body2">
+                            @_StringLocalizer["Details002.1"]<br />
+                            @_StringLocalizer["Details002.2"]<br />
+                        </MudText>
+                    </MudItem>
+                    <MudItem xs="12" md="4">
+                        <MudImage Class="img-fluid rounded-lg p-3 mt-4 mb-2" Src="_content/SiF_Common_RCL/Images/vegtrays2.jpg" Alt="Make something fabulous" />
+                    </MudItem>
+                </MudGrid>
+            </MudItem>
+            <MudItem xs="12">
+                <MudGrid>
+                    <MudItem xs="12" sm="6" md="3">
+                        <MudCard>
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.h4">@_StringLocalizer["SubHeading001"]</MudText>
+                                </CardHeaderContent>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudText Typo="Typo.body2">@_StringLocalizer["SubDetails001"]</MudText>
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudButton Variant="Variant.Text" Color="Color.Primary">@_StringLocalizer["ViewDetails"]</MudButton>
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                    <MudItem xs="12" sm="6" md="3">
+                        <MudCard>
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.h4">@_StringLocalizer["SubHeading002"]</MudText>
+                                </CardHeaderContent>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudText Typo="Typo.body2">@_StringLocalizer["SubDetails002"]</MudText>
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudButton Variant="Variant.Text" Color="Color.Primary">@_StringLocalizer["ViewDetails"]</MudButton>
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                    <MudItem xs="12" sm="6" md="3">
+                        <MudCard>
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.h4">@_StringLocalizer["SubHeading003"]</MudText>
+                                </CardHeaderContent>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudText Typo="Typo.body2">@_StringLocalizer["SubDetails003"]</MudText>
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudButton Variant="Variant.Text" Color="Color.Primary">@_StringLocalizer["ViewDetails"]</MudButton>
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                    <MudItem xs="12" sm="6" md="3">
+                        <MudCard>
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.h4">@_StringLocalizer["SubHeading004"]</MudText>
+                                </CardHeaderContent>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudText Typo="Typo.body2">@_StringLocalizer["SubDetails004"]</MudText>
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudButton Variant="Variant.Text" Color="Color.Primary">@_StringLocalizer["ViewDetails"]</MudButton>
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                </MudGrid>
+            </MudItem>
+        </MudGrid>
+    </CardBodyContent>
+</CollapsibleCard>
+
+@code
+{
+    //[CascadingParameter]
+    internal List<BreadcrumbItem> _navBreadcrumbs = new List<BreadcrumbItem>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        AreaNavBreadcrumbsClass areaNavBreadcrumbsClass = new AreaNavBreadcrumbsClass(_LocalizationCultureService);
+        _navBreadcrumbs = areaNavBreadcrumbsClass.NavBreadcrumbs;
+    }
+
+    //protected override async Task OnParametersSetAsync()
+    //{
+    //}
+}

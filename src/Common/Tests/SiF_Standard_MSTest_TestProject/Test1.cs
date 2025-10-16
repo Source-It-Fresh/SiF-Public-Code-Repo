@@ -1,0 +1,11 @@
+﻿namespace SiF_Standard_MSTest_TestProject
+{
+    [TestClass]
+    public sealed class Test1
+    {
+        [TestMethod]
+        public void TestMethod1()
+        {
+        }
+    }
+}

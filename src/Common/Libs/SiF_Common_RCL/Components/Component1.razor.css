@@ -1,0 +1,10 @@
+﻿/*
+// SourceItFresh - Copyright (C) 2020
+// This SiF file is licensed under v3 of the GNU Affero General Public License.
+*/
+.my-component {
+    border: 2px dashed green;
+    padding: 1em;
+    margin: 1em 0;
+    background-image: url('background.png');
+}

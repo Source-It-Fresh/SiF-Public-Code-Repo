@@ -1,0 +1,501 @@
+﻿/*
+// SourceItFresh - Copyright (C) 2020
+// This SiF file is licensed under v3 of the GNU Affero General Public License.
+*/
+@charset "UTF-8";
+
+/*Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets.*/
+
+/*ToDo: Change all -Unknows's & defaults(for new) to the SIF LOGO'*/
+
+:root {
+    --BackClassificationWidth: 50vw;
+    --BackClassificationHeight: 70vh;
+    --IconWidth: 100px;
+    --IconHeight: 100px;
+    --IconBorderRadius: 50%;
+}
+
+.centeredIconText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    color: black;
+}
+
+/*Back_ClassificationType*/
+.harvest-Back_ClassificationType-IndoorsGreenhousegeoDome {
+    width: var(--BackClassificationWidth);
+    height: var(--BackClassificationHeight);
+    background-color: #009900;
+}
+
+.harvest-Back_ClassificationType-IndoorsRoomBasement {
+    width: var(--BackClassificationWidth);
+    height: var(--BackClassificationHeight);
+    background-image: -webkit-radial-gradient(center center, ellipse farthest-corner, transparent 0%, transparent 10%, rgba(0,0,0,0.8) 100%), -webkit-linear-gradient(top, #555 0%, #555 1px, transparent 1px, transparent 14px, #555 14px, #555 16px, transparent 16px, transparent 29px, #555 29px, #555 30px), -webkit-linear-gradient(45deg, #ddd 0%, #ddd 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%), -webkit-linear-gradient(45deg, #eee 0%, #eee 25%, transparent 25%, transparent 75%, #ddd 75%, #ddd 100%), -webkit-linear-gradient(left, #555 0px, #555 1px, transparent 1px, transparent 14px, #555 14px, #555 16px, transparent 16px, transparent 29px, #555 29px, #555 30px), -webkit-linear-gradient(45deg, #ddd 0%, #ddd 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%), -webkit-linear-gradient(45deg, #eee 0%, #eee 25%, transparent 25%, transparent 75%, #ddd 75%, #ddd 100%);
+    background-position: 0 0, 0 0, 13px 0, 28px 15px, 0 0, 0 0, 15px 15px;
+    background-size: 600px 300px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px;
+}
+
+.harvest-Back_ClassificationType-OutdoorsRooftop {
+    width: var(--BackClassificationWidth);
+    height: var(--BackClassificationHeight);
+    background-color: #3399FF;
+}
+
+.harvest-Back_ClassificationType-OutdoorsPatchofopenlandGarden {
+    width: var(--BackClassificationWidth);
+    height: var(--BackClassificationHeight);
+    background-image: linear-gradient(#F5DF4D 0%, #3399FF 10%, #3399FF 50%, #009900 65%, #663300 70%);
+}
+
+.harvest-Back_ClassificationType-Other {
+    width: var(--BackClassificationWidth);
+    height: var(--BackClassificationHeight);
+    /* background-color: #663300;*/
+    background-image: url('../_content/SiF_Common_RCL/Images/source_logo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30%;
+}
+
+/*Back_SetupType*/
+/*ToDo:Add GrowSpaces_SetupType CSS*/
+
+/*Zone_ClassificationType*/
+.harvest-Zone_ClassificationType-IndoorsGreenhousegeoDome {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-color: #009900;
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-Zone_ClassificationType-IndoorsRoomBasement {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: -webkit-radial-gradient(center center, ellipse farthest-corner, transparent 0%, transparent 10%, rgba(0,0,0,0.8) 100%), -webkit-linear-gradient(top, #555 0%, #555 1px, transparent 1px, transparent 14px, #555 14px, #555 16px, transparent 16px, transparent 29px, #555 29px, #555 30px), -webkit-linear-gradient(45deg, #ddd 0%, #ddd 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%), -webkit-linear-gradient(45deg, #eee 0%, #eee 25%, transparent 25%, transparent 75%, #ddd 75%, #ddd 100%), -webkit-linear-gradient(left, #555 0px, #555 1px, transparent 1px, transparent 14px, #555 14px, #555 16px, transparent 16px, transparent 29px, #555 29px, #555 30px), -webkit-linear-gradient(45deg, #ddd 0%, #ddd 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%), -webkit-linear-gradient(45deg, #eee 0%, #eee 25%, transparent 25%, transparent 75%, #ddd 75%, #ddd 100%);
+    background-position: 0 0, 0 0, 13px 0, 28px 15px, 0 0, 0 0, 15px 15px;
+    background-size: 600px 300px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px, 30px 30px;
+    /*background-position: center;
+    background-size: cover;*/
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-Zone_ClassificationType-OutdoorsRooftop {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-color: #3399FF;
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-Zone_ClassificationType-OutdoorsPatchofopenlandGarden {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: linear-gradient(#F5DF4D 0%, #3399FF 10%, #3399FF 50%, #009900 65%, #663300 70%);
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-Zone_ClassificationType-Other {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Fav/ms-icon-150x150.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+/*Zone_ClimateType*/
+.harvest-Zone_ClimateType-unknown {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Climate/unknown.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-Zone_ClimateType-Tropical {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Climate/Tropical.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-Zone_ClimateType-Desert {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Climate/Desert.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-Zone_ClimateType-Temperate {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Climate/Temperate.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-Zone_ClimateType-Continental {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Climate/Continental.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-Zone_ClimateType-Polar {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Climate/Polar.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+/*GrowSpaces_SetupType*/
+/*ToDo:Add Zone_SetupType CSS*/
+
+/*GrowSpaces_GrowSpaceType*/
+.harvest-GrowSpaces_GrowSpaceType-unknown {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Fav/ms-icon-150x150.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_GrowSpaceType-Rows {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/GST/Rows.png'); /*||*/
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_GrowSpaceType-Beds {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/GST/Beds.png'); /*O*/
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_GrowSpaceType-Trays {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/GST/Trays.png'); /*=*/
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+/*GrowSpaces_GrowMediumType*/
+.harvest-GrowSpaces_GrowMediumType-unknown {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Fav/ms-icon-150x150.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_GrowMediumType-Water {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/GMT/Water.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_GrowMediumType-Air {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/GMT/Air.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_GrowMediumType-Gravel {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/GMT/Gravel.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_GrowMediumType-SandSilt {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/GMT/SandSilt.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_GrowMediumType-SoilClaysMineralColloids {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/GMT/SoilClays.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_GrowMediumType-OrganicColloids {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: radial-gradient(circle, green, yellow, red);
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_GrowMediumType-CarbonandTerraPreta {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/GMT/Leca.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_GrowMediumType-RockWool {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/GMT/RockWool.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_GrowMediumType-SyntheticMaterial {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/GMT/SyntheticMaterial.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+/*GrowSpaces_LightSourceType*/
+.harvest-GrowSpaces_LightSourceType-unknown {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Lights/unknown.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_LightSourceType-DarknessnoLight {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Lights/DarknessnoLight.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_LightSourceType-Sunlight {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Lights/Sunlight.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_LightSourceType-IncandescentBulb {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Lights/IncandescentBulb.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_LightSourceType-LED {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Lights/LED.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_LightSourceType-CFL {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Lights/CFL.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_LightSourceType-Fluorescent {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Lights/Fluorescent.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_LightSourceType-Halogen {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Lights/Halogen.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_LightSourceType-Sodium {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Lights/Sodium.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-GrowSpaces_LightSourceType-Mercury {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/Lights/Mercury.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+/*SubArea_CropLifeCycleStage FOR DataRecords*/
+.harvest-SubArea_CropLifeCycleStage-1 {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/CLS/1.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-SubArea_CropLifeCycleStage-2 {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/CLS/2.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-SubArea_CropLifeCycleStage-3 {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/CLS/3.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-SubArea_CropLifeCycleStage-4 {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/CLS/4.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-SubArea_CropLifeCycleStage-5 {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/CLS/5.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-SubArea_CropLifeCycleStage-6 {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/CLS/6.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-SubArea_CropLifeCycleStage-7 {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/CLS/7.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-SubArea_CropLifeCycleStage-8 {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/CLS/8.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-SubArea_CropLifeCycleStage-9 {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/CLS/9.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-SubArea_CropLifeCycleStage-10 {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/CLS/10.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+.harvest-SubArea_CropLifeCycleStage-11 {
+    width: var(--IconWidth);
+    height: var(--IconHeight);
+    background-image: url('../_content/SiF_Common_RCL/Images/CLS/11.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--IconBorderRadius);
+}
+
+/*---test---*/
+.testScene {
+    width: 50vw;
+    height: 40vh;
+    border: 1px solid #CCC;
+    perspective: 100vmin;
+    overflow: hidden;
+}

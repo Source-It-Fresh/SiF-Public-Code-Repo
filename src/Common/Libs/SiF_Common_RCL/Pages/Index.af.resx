@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Consumers" xml:space="preserve">
+    <value>Verbruikers</value>
+    <comment>Index</comment>
+  </data>
+  <data name="ConsumersText" xml:space="preserve">
+    <value>Het 'n verenigde verband met produsente van produkte wat jy gebruik en verbruik in die nabyheid van jou. Bou groen krediete vir toekomstige waarde.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details001.1" xml:space="preserve">
+    <value>'n Omsendbrief produksiestelsels-app vir verskaffers, produsente en verbruikers. Die verskaffing van al die deelnemers die inligting wat nodig is om die siklus einde suksesvol te voltooi tot einde.
+Die kombinasie van toekomstige produksie en gesonde praktyke vir u, u besigheid, u kliënte, u voorsieningsketting en u wêreld.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details001.2" xml:space="preserve">
+    <value>"Neem die pad om ons planeet te herstel... jou reis sal inderdaad lonend wees."</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details002.1" xml:space="preserve">
+    <value>Produsente wat bestaan of nuut is, het die gereedskap om produksieruimtes voor te berei en te beplan in direkte verhouding tot die vraag na 'n finale produk.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details002.2" xml:space="preserve">
+    <value>Verbruikers en eindgebruikers kan nou hul vraag met produsente beplan en die waardeketting so effektief as moontlik loop.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details002.3" xml:space="preserve">
+    <value>Verskaffers van materiale en dienste vir produsente, sluit die laaste been van die lus vir volhoubare en regeneratiewe praktyke, oral op die wêreld.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details003" xml:space="preserve">
+    <value>Beplan, leer, produseer, koop, verkoop of skenk produkte. Waar jy ook al op ons planeet is.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details004.1" xml:space="preserve">
+    <value>Registreer - Jou persoonlike data is joune alleen</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details004.2" xml:space="preserve">
+    <value>Kies jou model - Produksie, Verbruik, Voorrade of al drie</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details004.3" xml:space="preserve">
+    <value>Beplan jou produksie of vraag</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details004.4" xml:space="preserve">
+    <value>Saai jou besigheid uit en betrek ander</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details005.1" xml:space="preserve">
+    <value>Registrasie maklik gemaak, een klik outentiseer via jou bestaande sosiale media rekening(s)</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details005.2" xml:space="preserve">
+    <value>Deur aan te meld, kry jy toegang tot 'n ryk oorvloed werklike wêreld, integrasie gereed funksies en funksies wat deur SIF.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details005.3" xml:space="preserve">
+    <value>Net 'n nota oor data hier. Ons stel nie belang in u persoonlike data nie. Die data wat ons versamel, is die rou dinge wat almal in die SIF-gemeenskap sal help.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Greetings1" xml:space="preserve">
+    <value>Source it Fresh, 'n oopbronplatform vir alle partye in die vars verbruikbare produksiklus.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Greetings2" xml:space="preserve">
+    <value>Om sterk, koolstofbewuste en noemenswaardige gemeenskappe van produsente, verskaffers en verbruikers moontlik te maak.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Heading001" xml:space="preserve">
+    <value>Verstandig - Intelligent - Vars</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Heading002" xml:space="preserve">
+    <value>Pas jou toekoms by enige van hierdie siklusse?</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Heading003" xml:space="preserve">
+    <value>Groei, voorbereiding of vervaardiging van iets met 'n beste gebruik datum is super-gelaai met Source it Fresh.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Heading004" xml:space="preserve">
+    <value>Hoe begin ek met Source it Fresh?</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Heading005" xml:space="preserve">
+    <value>Moeitelose aanmelding / teken aan</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Producers" xml:space="preserve">
+    <value>Produsente</value>
+    <comment>Index</comment>
+  </data>
+  <data name="ProducersText" xml:space="preserve">
+    <value>Verhoog u produktiwiteit, skaal u besigheid en vervul u bestellings naatloos. Word beloon vir jou koolstofbewuste metodologie.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Suppliers" xml:space="preserve">
+    <value>Verskaffers</value>
+    <comment>Index</comment>
+  </data>
+  <data name="SuppliersText" xml:space="preserve">
+    <value>Koördineer u aanbodbesigheid met minimale moeite vir al u Bron dit Vars kliënte. Deel in belonings vir groen krediete en volhoubare praktyke.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Jou besigheid, net beter..</value>
+    <comment>Index</comment>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>Bekyk besonderhede</value>
+    <comment>Index</comment>
+  </data>
+</root>

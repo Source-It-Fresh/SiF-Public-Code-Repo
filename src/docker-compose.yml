@@ -1,0 +1,113 @@
+volumes:
+  SIF_MSSQL_Volume:
+    external: true
+
+services:
+  SIF_SQLDB_Container:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      ACCEPT_EULA: "Y"
+      # Set SA_PASSWORD in a .env file or as an environment variable, do not hardcode here
+      SA_PASSWORD: ${SA_PASSWORD}
+    ports:
+      - "1444:1433"
+    volumes:
+      - SIF_MSSQL_Volume:/var/opt/mssql
+
+###
+
+  sif_appdata_api:
+    image: ${DOCKER_REGISTRY-}sifappdataapi
+    build:
+      context: .
+      dockerfile: Other/SiF_AppData_API/Dockerfile
+
+###
+
+  sif_base_discover_api:
+    image: ${DOCKER_REGISTRY-}sifbasediscoverapi
+    build:
+      context: .
+      dockerfile: Modules/Base/Discover/SiF_Base_Discover_API/Dockerfile
+
+  sif_base_learn_api:
+    image: ${DOCKER_REGISTRY-}sifbaselearnapi
+    build:
+      context: .
+      dockerfile: Modules/Base/Learn/SiF_Base_Learn_API/Dockerfile
+
+  sif_configure_addins_api:
+    image: ${DOCKER_REGISTRY-}sifconfigureaddinsapi
+    build:
+      context: .
+      dockerfile: Modules/Configure/AddIns/SiF_Configure_AddIns_API/Dockerfile
+
+  sif_configure_paidservices_api:
+    image: ${DOCKER_REGISTRY-}sifconfigurepaidservicesapi
+    build:
+      context: .
+      dockerfile: Modules/Configure/PaidServices/SiF_Configure_PaidServices_API/Dockerfile
+
+  sif_configure_settings_api:
+    image: ${DOCKER_REGISTRY-}sifconfiguresettingsapi
+    build:
+      context: .
+      dockerfile: Modules/Configure/Settings/SiF_Configure_Settings_API/Dockerfile
+
+  sif_manage_commodities_api:
+    image: ${DOCKER_REGISTRY-}sifmanagecommoditiesapi
+    build:
+      context: .
+      dockerfile: Modules/Manage/Commodities/SiF_Manage_Commodities_API/Dockerfile
+
+  sif_manage_farm_api:
+    image: ${DOCKER_REGISTRY-}sifmanagefarmapi
+    build:
+      context: .
+      dockerfile: Modules/Manage/Farm/SiF_Manage_Farm_API/Dockerfile
+
+  sif_manageorg_accounts_api:
+    image: ${DOCKER_REGISTRY-}sifmanageorgaccountsapi
+    build:
+      context: .
+      dockerfile: Modules/ManageOrg/Accounts/SiF_ManageOrg_Accounts_API/Dockerfile
+
+  sif_manageorg_actionlogs_api:
+    image: ${DOCKER_REGISTRY-}sifmanageorgactionlogsapi
+    build:
+      context: .
+      dockerfile: Modules/ManageOrg/ActionLogs/SiF_ManageOrg_ActionLogs_API/Dockerfile
+
+  sif_manageorg_traderentity_api:
+    image: ${DOCKER_REGISTRY-}sifmanageorgtraderentityapi
+    build:
+      context: .
+      dockerfile: Modules/ManageOrg/TraderEntity/SiF_ManageOrg_TraderEntity_API/Dockerfile
+
+  sif_market_consumer_api:
+    image: ${DOCKER_REGISTRY-}sifmarketconsumerapi
+    build:
+      context: .
+      dockerfile: Modules/Market/Consumer/SiF_Market_Consumer_API/Dockerfile
+
+  sif_market_vendor_api:
+    image: ${DOCKER_REGISTRY-}sifmarketvendorapi
+    build:
+      context: .
+      dockerfile: Modules/Market/Vendor/SiF_Market_Vendor_API/Dockerfile
+
+###
+
+  sif_aspnetcore_mvc_webapp:
+    image: ${DOCKER_REGISTRY-}sifaspnetcoremvcwebapp
+    build:
+      context: .
+      dockerfile: Classic/Apps/SiF_ASPNetCore_MVC_WebApp/Dockerfile
+
+  sif_aspnetcore_razor_webapp:
+    image: ${DOCKER_REGISTRY-}sifaspnetcorerazorwebapp
+    build:
+      context: .
+      dockerfile: Classic/Apps/SiF_ASPNetCore_Razor_WebApp/Dockerfile
+
+###

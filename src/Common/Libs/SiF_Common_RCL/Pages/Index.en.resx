@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Consumers" xml:space="preserve">
+    <value>Consumers</value>
+    <comment>Index</comment>
+  </data>
+  <data name="ConsumersText" xml:space="preserve">
+    <value>Have unified connection with producers of products that you use and consume in close proximity to you. Build green credits for future value.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details001.1" xml:space="preserve">
+    <value>A circular production systems app for suppliers, producers and consumers. Providing all the participants the information required to successfully complete the cycle end to end.
+Combining future production and healthy practices for you, your business, your customers, your supply chain and your world.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details001.2" xml:space="preserve">
+    <value>"Take the path of regenerating our planet... your journey will be rewarding indeed."</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details002.1" xml:space="preserve">
+    <value>Producers existing or new, have the tools to prepare and plan production spaces in direct proportion to the demand for a finished product.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details002.2" xml:space="preserve">
+    <value>Consumers and end-users can now plan their demand with producers, looping the value chain as effectively as possible.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details002.3" xml:space="preserve">
+    <value>Suppliers of materials and services for producers, close the last leg of the loop for sustainable and regenerative practices, anywhere on the globe.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details003" xml:space="preserve">
+    <value>Plan, learn, produce, buy, sell or donate products. Wherever you are on our planet.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details004.1" xml:space="preserve">
+    <value>Register - Your personal data is yours alone</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details004.2" xml:space="preserve">
+    <value>Choose your model - Production, Consumption, Supplies or all three</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details004.3" xml:space="preserve">
+    <value>Plan your production or demand</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details004.4" xml:space="preserve">
+    <value>Broadcast your business and engage with others</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details005.1" xml:space="preserve">
+    <value>Registration made easy, one click authenticate via your existing social media account(s)</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details005.2" xml:space="preserve">
+    <value>Just a note on data here. We're not interested in your personal data. The data we're collecting is the raw stuff that will help everyone in the SIF community.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Details005.3" xml:space="preserve">
+    <value>By logging in you gain access to a rich plethora of real world, integration ready features and functions provided by SIF.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Greetings1" xml:space="preserve">
+    <value>Source it Fresh, an open-source platform for all parties in the fresh consumable product cycle.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Greetings2" xml:space="preserve">
+    <value>Enabling strong, carbon-conscious, and notable communities of producers, suppliers and consumers.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Heading001" xml:space="preserve">
+    <value>Sensible - Intelligent - Fresh</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Heading002" xml:space="preserve">
+    <value>Does your future fit any of these cycles?</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Heading003" xml:space="preserve">
+    <value>Growing, preparing or producing something with a best use date is super-charged with Source it Fresh.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Heading004" xml:space="preserve">
+    <value>How do I start with Source it Fresh?</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Heading005" xml:space="preserve">
+    <value>Effortless sign up / sign in</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Producers" xml:space="preserve">
+    <value>Producers</value>
+    <comment>Index</comment>
+  </data>
+  <data name="ProducersText" xml:space="preserve">
+    <value>Boost your productivity, scale your business and fulfill your orders seamlessly. Be rewarded for your carbon-conscious methodology.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Suppliers" xml:space="preserve">
+    <value>Suppliers</value>
+    <comment>Index</comment>
+  </data>
+  <data name="SuppliersText" xml:space="preserve">
+    <value>Co-ordinate your supply business with minimal effort for all your Source it Fresh customers. Share in rewards for green credits and sustainable practices.</value>
+    <comment>Index</comment>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Your business, only better..</value>
+    <comment>Index</comment>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>View Details</value>
+    <comment>Index</comment>
+  </data>
+</root>

@@ -1,0 +1,425 @@
+﻿@*
+### ### ### ### ### ### ###
+SourceItFresh - Copyright (C) 2020
+This SiF file is licensed under v3 of the GNU Affero General Public License.
+### ### ###
+GNU AGPLv3 lets people do almost anything they want with the project, except distributing closed-source versions.
+
+Permissions of this strongest copyleft license are conditioned on:
+Making available the complete source code of works and modifications,
+ which include larger works using a licensed work, under the same license.
+Copyright and license notices must be preserved.
+Contributors provide an express grant of patent rights.
+When a modified version is used to provide a service over a network,
+ the complete source code of the modified version must be made available.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY,
+ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+### ### ###
+See LICENSE.txt for more details or visit <https://www.gnu.org/licenses/>
+### ### ### ### ### ### ###
+*@
+@using System.Net.Http.Json
+@using System.Globalization
+
+@inject HttpClient httpClient
+
+@*<MudMenu Icon="@Icons.Material.TwoTone.Translate" Color="Color.Inherit" Direction="Direction.Left" Dense="true">*@
+<MudNavMenu Color="Color.Info" Bordered="true" Rounded="true" Dense="true">
+    <MudCard Elevation="0" Square="true">
+        <MudCardHeader>
+            <CardHeaderAvatar>
+                <MudToggleIconButton @bind-Toggled="@RTL_State" @onclick="@UpdateRTL_State"
+                                     Icon="@Icons.Material.TwoTone.FormatTextdirectionRToL" Title="R-T-L"
+                                     ToggledIcon="@Icons.Material.TwoTone.FormatTextdirectionLToR" ToggledTitle="L-T-R" />
+                <MudText Typo="Typo.caption">@_displayTag</MudText>
+            </CardHeaderAvatar>
+            <CardHeaderContent>
+                <MudText Typo="Typo.subtitle1">@_displayFamily</MudText>
+                <MudText Typo="Typo.subtitle2">@_displayVariant</MudText>
+            </CardHeaderContent>
+        </MudCardHeader>
+    </MudCard>
+    <MudDivider Class="mb-1" />
+    <MudMenuItem Disabled="true"><MudRadioGroup T="string" @bind-SelectedOption="@_selectedOption"><MudRadio T="string" Disabled="true" Option="@("Auto")" Size="Size.Small" Dense="true">Auto - Localization</MudRadio></MudRadioGroup></MudMenuItem>
+    <MudDivider Class="mb-1" />
+    <MudMenuItem><MudRadioGroup T="string" @bind-SelectedOption="@_selectedOption"><MudRadio T="string" Option="@("Manual")" Size="Size.Small" Dense="true">Manually - Select</MudRadio></MudRadioGroup></MudMenuItem>
+    <MudDivider Class="mb-1" />
+
+    @*ToDo: All REg ENg-US Green IconFlag / red not  avalible {load from dblist, color depending on *.resx files found}*@
+    <MudNavGroup Title="Manual Selection List: " Icon="@Icons.Material.TwoTone.Language" Expanded="false">
+        <MudTable @ref="_LanguageElementMudTable" T="LanguageElement" Items="@_languageExampleElement" Breakpoint="Breakpoint.Xs"
+                  Dense="true" Height="400px"
+                  FixedHeader="@SiF_Constants.MudTableConfig.FixedHeader" FixedFooter="@SiF_Constants.MudTableConfig.FixedFooter"
+                  Loading="@(_languageExampleElement == null)" LoadingProgressColor="Color.Info" ReadOnly="true"
+                  Filter="new Func<LanguageElement,bool>(FilterFunc)" SortLabel="@SiF_Constants.MudTableConfig.SortLabel"
+                  Hover="@SiF_Constants.MudTableConfig.Hover" Striped="@SiF_Constants.MudTableConfig.Striped" Bordered="@_Bordered_">
+            @*@bind-SelectedItem="DivisionClassToEdit" >*@
+            <ToolBarContent>
+                <MudText Typo="Typo.h6">[Example_DisplayCultureInfo]</MudText>
+                <MudSpacer />
+                <MudTextField @bind-Value="_SearchString" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.TwoTone.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+            </ToolBarContent>
+            <LoadingContent>
+                Loading... <MudProgressCircular Color="Color.Default" Indeterminate="true" />
+            </LoadingContent>
+            <NoRecordsContent>
+                No records found.
+            </NoRecordsContent>
+            <HeaderContent>
+                <MudTh><MudTableSortLabel SortBy="new Func<LanguageElement, object>(x => x.LanguageEnglish)" InitialDirection="SortDirection.Ascending">English</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<LanguageElement, object>(x => x.LanguageNative)" InitialDirection="SortDirection.Ascending">Native</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<LanguageElement, object>(x => x.LanguageSubtag)" InitialDirection="SortDirection.Ascending">Subtag</MudTableSortLabel></MudTh>
+            </HeaderContent>
+            <ColGroup>
+                <col style="width: 40%" />
+                <col style="width: 40%" />
+                <col style="width: 20%" />
+            </ColGroup>
+            <RowTemplate>
+                @if (@context.LanguageSubtag.ToLower().Contains("en") || @context.LanguageSubtag.ToLower().Contains("af"))
+                {
+                    <MudTd DataLabel="English"><MudText Typo="Typo.subtitle2" Color="Color.Success">@context.LanguageEnglish</MudText></MudTd>
+                    <MudTd DataLabel="Native"><MudText Typo="Typo.subtitle2" Color="Color.Success">@context.LanguageNative</MudText></MudTd>
+                    <MudTd DataLabel="Subtag"><MudText Typo="Typo.subtitle2" Color="Color.Success">@context.LanguageSubtag</MudText></MudTd>
+                }
+                else
+                {
+                    <MudTd DataLabel="English"><MudText Typo="Typo.subtitle2" Color="Color.Error">@context.LanguageEnglish</MudText></MudTd>
+                    <MudTd DataLabel="Native"><MudText Typo="Typo.subtitle2" Color="Color.Error">@context.LanguageNative</MudText></MudTd>
+                    <MudTd DataLabel="Subtag"><MudText Typo="Typo.subtitle2" Color="Color.Error">@context.LanguageSubtag</MudText></MudTd>
+                }
+            </RowTemplate>
+            @*<PagerContent>
+            <MudTablePager InfoFormat="@($"Center {"{first_item}-{last_item} of {all_items}"}")" HorizontalAlignment="HorizontalAlignment.Center" PageSizeOptions="@SiF_Constants.MudTableConfig.PageSizeOptions" />
+            </PagerContent>*@
+        </MudTable>
+    </MudNavGroup>
+
+    <MudNavGroup Title="Variant Selection List: " Icon="@Icons.Material.TwoTone.Language" Expanded="false">
+        <MudTable @ref="_LanguageVariantElementMudTable" T="LanguageVariantElement" Items="@_languageVariantExampleElement"
+                  Breakpoint="Breakpoint.Xs" Dense="true" Height="400px"
+                  FixedHeader="@SiF_Constants.MudTableConfig.FixedHeader" FixedFooter="@SiF_Constants.MudTableConfig.FixedFooter"
+                  Loading="@(_languageVariantExampleElement == null)" LoadingProgressColor="Color.Info" ReadOnly="true"
+                  Filter="new Func<LanguageVariantElement,bool>(FilterFunc)" SortLabel="@SiF_Constants.MudTableConfig.SortLabel"
+                  Hover="@SiF_Constants.MudTableConfig.Hover" Striped="@SiF_Constants.MudTableConfig.Striped" Bordered="@_Bordered_">
+            @*@bind-SelectedItem="DivisionClassToEdit" >*@
+            <ToolBarContent>
+                <MudText Typo="Typo.h6">[Example_DisplayCultureInfo]</MudText>
+                <MudSpacer />
+                <MudTextField @bind-Value="_SearchString" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.TwoTone.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+            </ToolBarContent>
+            <LoadingContent>
+                Loading... <MudProgressCircular Color="Color.Default" Indeterminate="true" />
+            </LoadingContent>
+            <NoRecordsContent>
+                No records found.
+            </NoRecordsContent>
+            <HeaderContent>
+                <MudTh><MudTableSortLabel SortBy="new Func<LanguageVariantElement, object>(x => x.LanguageFamily)" InitialDirection="SortDirection.Ascending">Family</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<LanguageVariantElement, object>(x => x.LanguageVariant)" InitialDirection="SortDirection.Ascending">Variant</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<LanguageVariantElement, object>(x => x.LanguageTag)" InitialDirection="SortDirection.Ascending">Tag</MudTableSortLabel></MudTh>
+            </HeaderContent>
+            <ColGroup>
+                <col style="width: 40%" />
+                <col style="width: 40%" />
+                <col style="width: 20%" />
+            </ColGroup>
+            <RowTemplate>
+                @if (@context.LanguageTag.ToLower().Contains("en") || @context.LanguageTag.ToLower().Contains("af"))
+                {
+                    <MudTd DataLabel="Family"><MudText Typo="Typo.subtitle2" Color="Color.Success">@context.LanguageFamily</MudText></MudTd>
+                    <MudTd DataLabel="Variant"><MudText Typo="Typo.subtitle2" Color="Color.Success">@context.LanguageVariant</MudText></MudTd>
+                    <MudTd DataLabel="Tag"><MudText Typo="Typo.subtitle2" Color="Color.Success">@context.LanguageTag</MudText></MudTd>
+                }
+                else
+                {
+                    <MudTd DataLabel="Family"><MudText Typo="Typo.subtitle2" Color="Color.Error">@context.LanguageFamily</MudText></MudTd>
+                    <MudTd DataLabel="Variant"><MudText Typo="Typo.subtitle2" Color="Color.Error">@context.LanguageVariant</MudText></MudTd>
+                    <MudTd DataLabel="Tag"><MudText Typo="Typo.subtitle2" Color="Color.Error">@context.LanguageTag</MudText></MudTd>
+                }
+            </RowTemplate>
+            @*<PagerContent>
+            <MudTablePager InfoFormat="@($"Center {"{first_item}-{last_item} of {all_items}"}")" HorizontalAlignment="HorizontalAlignment.Center" PageSizeOptions="@SiF_Constants.MudTableConfig.PageSizeOptions" />
+            </PagerContent>*@
+        </MudTable>
+    </MudNavGroup>
+</MudNavMenu>
+
+@code {
+    [Parameter] public bool RTL_State { get; set; } = true;
+
+    [Parameter] public EventCallback<bool> RTL_StateChanged { get; set; }
+
+    public string _selectedOption { get; set; } = "Manual";
+    public string _displayTag = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+    public string _displayFamily = CultureInfo.CurrentCulture.DisplayName;
+    public string _displayVariant = CultureInfo.CurrentCulture.NativeName;
+
+    public IEnumerable<LanguageVariantElement> _languageVariantExampleElement = new List<LanguageVariantElement>();
+    public IEnumerable<LanguageElement> _languageExampleElement = new List<LanguageElement>();
+
+    private MudTable<LanguageVariantElement>? _LanguageVariantElementMudTable;
+    private MudTable<LanguageElement>? _LanguageElementMudTable;
+
+    private string _SearchString = string.Empty;
+    private int _SelectedRowNumber = -1;
+    private List<string> _ClickedEvents = new();
+    private bool FilterFunc(LanguageVariantElement LanguageVariantElement) => FilterFuncMain(LanguageVariantElement, _SearchString);
+    private bool FilterFunc(LanguageElement LanguageElement) => FilterFuncMain(LanguageElement, _SearchString);
+
+    //Move to UserSettings//
+    private Variant _FieldVariant = Variant.Outlined;
+    private bool _Bordered_ = SiF_Constants.MudTableConfig._Bordered_;
+
+    protected override void OnInitialized()
+    {
+        //https://en.wikipedia.org/wiki/Language_localisation
+        _languageVariantExampleElement = new List<LanguageVariantElement>()
+        {
+            new LanguageVariantElement() { LanguageFamily = "Arabic", LanguageTag = "ar-DZ",  LanguageVariant = "Algerian Arabic" },
+            new LanguageVariantElement() { LanguageFamily = "Arabic", LanguageTag = "ar-EG",  LanguageVariant = "Egyptian Arabic" },
+            new LanguageVariantElement() { LanguageFamily = "Arabic", LanguageTag = "ar-IQ",  LanguageVariant = "Arabic (Iraq)" },
+            new LanguageVariantElement() { LanguageFamily = "Arabic", LanguageTag = "ar-MA",  LanguageVariant = "Moroccan Arabic" },
+            new LanguageVariantElement() { LanguageFamily = "Arabic", LanguageTag = "ar-SA",  LanguageVariant = "Saudi Arabian Arabic" },
+            new LanguageVariantElement() { LanguageFamily = "Arabic", LanguageTag = "ar-AE",  LanguageVariant = "Arabic (United Arab Emirates)" },
+
+            new LanguageVariantElement() { LanguageFamily = "Bangla", LanguageTag = "bn-BD",  LanguageVariant = "Bangla (Bangladesh)" },
+            new LanguageVariantElement() { LanguageFamily = "Bangla", LanguageTag = "bn-IN",  LanguageVariant = "Bangla (India)" },
+
+            new LanguageVariantElement() { LanguageFamily = "Chinese", LanguageTag = "zh-CN",  LanguageVariant = "Mainland China, simplified characters" },
+            new LanguageVariantElement() { LanguageFamily = "Chinese", LanguageTag = "zh-TW",  LanguageVariant = "Taiwan, traditional characters" },
+            new LanguageVariantElement() { LanguageFamily = "Chinese", LanguageTag = "zh-HK",  LanguageVariant = "Hong Kong, traditional characters" },
+
+            new LanguageVariantElement() { LanguageFamily = "Dutch", LanguageTag = "nl-BE",  LanguageVariant = "Belgian Dutch (aka Flemish)" },
+            new LanguageVariantElement() { LanguageFamily = "Dutch", LanguageTag = "nl-NL",  LanguageVariant = "Standard Dutch (as spoken in The Netherlands)" },
+
+            new LanguageVariantElement() { LanguageFamily = "English", LanguageTag = "en-GB",  LanguageVariant = "British English" },
+            new LanguageVariantElement() { LanguageFamily = "English", LanguageTag = "en-US",  LanguageVariant = "American English" },
+            new LanguageVariantElement() { LanguageFamily = "English", LanguageTag = "en-CA",  LanguageVariant = "Canadian English" },
+            new LanguageVariantElement() { LanguageFamily = "English", LanguageTag = "en-IN",  LanguageVariant = "Indian English" },
+            new LanguageVariantElement() { LanguageFamily = "English", LanguageTag = "en-AU",  LanguageVariant = "Australian English" },
+            new LanguageVariantElement() { LanguageFamily = "English", LanguageTag = "en-NZ",  LanguageVariant = "New Zealand English" },
+            new LanguageVariantElement() { LanguageFamily = "English", LanguageTag = "en-ZA",  LanguageVariant = "South African English" },
+
+            new LanguageVariantElement() { LanguageFamily = "French", LanguageTag = "fr-BE",  LanguageVariant = "Belgian French" },
+            new LanguageVariantElement() { LanguageFamily = "French", LanguageTag = "fr-CH",  LanguageVariant = "Swiss French" },
+            new LanguageVariantElement() { LanguageFamily = "French", LanguageTag = "fr-FR",  LanguageVariant = "Standard French (especially in France)" },
+            new LanguageVariantElement() { LanguageFamily = "French", LanguageTag = "fr-CA",  LanguageVariant = "Canadian French" },
+            new LanguageVariantElement() { LanguageFamily = "French", LanguageTag = "fr-LU",  LanguageVariant = "Luxembourgish French" },
+
+            new LanguageVariantElement() { LanguageFamily = "German", LanguageTag = "de-AT",  LanguageVariant = "Austrian German" },
+            new LanguageVariantElement() { LanguageFamily = "German", LanguageTag = "de-DE",  LanguageVariant = "Standard German (as spoken in Germany)" },
+            new LanguageVariantElement() { LanguageFamily = "German", LanguageTag = "de-CH",  LanguageVariant = "Swiss German" },
+
+            new LanguageVariantElement() { LanguageFamily = "Italian", LanguageTag = "it-CH",  LanguageVariant = "Swiss Italian" },
+            new LanguageVariantElement() { LanguageFamily = "Italian", LanguageTag = "it-IT",  LanguageVariant = "Standard Italian (as spoken in Italy)" },
+
+            new LanguageVariantElement() { LanguageFamily = "Korean", LanguageTag = "ko-KP",  LanguageVariant = "North Korea, Chosŏn'gŭl characters" },
+            new LanguageVariantElement() { LanguageFamily = "Korean", LanguageTag = "ko-KR",  LanguageVariant = "South Korea, Hangul characters" },
+
+            new LanguageVariantElement() { LanguageFamily = "Portuguese", LanguageTag = "pt-PT",  LanguageVariant = "European Portuguese (as written and spoken in Portugal)" },
+            new LanguageVariantElement() { LanguageFamily = "Portuguese", LanguageTag = "pt-BR",  LanguageVariant = "Brazilian Portuguese" },
+            new LanguageVariantElement() { LanguageFamily = "Portuguese", LanguageTag = "pt-AO",  LanguageVariant = "Angolan Portuguese" },
+            new LanguageVariantElement() { LanguageFamily = "Portuguese", LanguageTag = "pt-MZ",  LanguageVariant = "Mozambican Portuguese" },
+
+            new LanguageVariantElement() { LanguageFamily = "Sinhala", LanguageTag = "si-LK",  LanguageVariant = "Sri Lankan Sinhala" },
+
+            new LanguageVariantElement() { LanguageFamily = "Spanish", LanguageTag = "es-ES",  LanguageVariant = "Castilian Spanish (as spoken in Central-Northern Spain)" },
+            new LanguageVariantElement() { LanguageFamily = "Spanish", LanguageTag = "es-MX",  LanguageVariant = "Mexican Spanish" },
+            new LanguageVariantElement() { LanguageFamily = "Spanish", LanguageTag = "es-AR",  LanguageVariant = "Argentine Spanish" },
+            new LanguageVariantElement() { LanguageFamily = "Spanish", LanguageTag = "es-CO",  LanguageVariant = "Colombian Spanish" },
+            new LanguageVariantElement() { LanguageFamily = "Spanish", LanguageTag = "es-CL",  LanguageVariant = "Chilean Spanish" },
+            new LanguageVariantElement() { LanguageFamily = "Spanish", LanguageTag = "es-PE",  LanguageVariant = "Peruvian Spanish" },
+            new LanguageVariantElement() { LanguageFamily = "Spanish", LanguageTag = "es-VE",  LanguageVariant = "Venezuelan Spanish" },
+            new LanguageVariantElement() { LanguageFamily = "Spanish", LanguageTag = "es-DO",  LanguageVariant = "Dominican Spanish" },
+
+            new LanguageVariantElement() { LanguageFamily = "Swedish", LanguageTag = "sv-FI",  LanguageVariant = "Finland Swedish" },
+            new LanguageVariantElement() { LanguageFamily = "Swedish", LanguageTag = "sv-SE",  LanguageVariant = "Standard Swedish (as spoken in Sweden)" },
+
+            new LanguageVariantElement() { LanguageFamily = "Tamil", LanguageTag = "ta-IN",  LanguageVariant = "Indian Tamil" },
+            new LanguageVariantElement() { LanguageFamily = "Tamil", LanguageTag = "ta-LK",  LanguageVariant = "Sri Lankan Tamil" },
+
+            new LanguageVariantElement() { LanguageFamily = "Tamazight", LanguageTag = "zgh-MA",  LanguageVariant = "Standard Moroccan Tamazight" }
+        };
+
+        _languageExampleElement = new List<LanguageElement>()
+        {
+            new LanguageElement() { LanguageEnglish = "Afrikaans", LanguageNative = "Afrikaans", LanguageSubtag= "af"},
+            new LanguageElement() { LanguageEnglish = "Amharic", LanguageNative = "አማርኛ", LanguageSubtag= "am"},
+            new LanguageElement() { LanguageEnglish = "Arabic", LanguageNative = "العربية", LanguageSubtag= "ar"},
+            new LanguageElement() { LanguageEnglish = "Mapudungun", LanguageNative = "Mapudungun", LanguageSubtag= "arn"},
+            new LanguageElement() { LanguageEnglish = "Assamese", LanguageNative = "অসমীয়া", LanguageSubtag= "as"},
+            new LanguageElement() { LanguageEnglish = "Azeri", LanguageNative = "Azərbaycan­ılı", LanguageSubtag= "az"},
+            new LanguageElement() { LanguageEnglish = "Bashkir", LanguageNative = "Башҡорт", LanguageSubtag= "ba"},
+            new LanguageElement() { LanguageEnglish = "Belarusian", LanguageNative = "беларуская", LanguageSubtag= "be"},
+            new LanguageElement() { LanguageEnglish = "Myanmar", LanguageNative = "Myanmar", LanguageSubtag= "my"},
+            new LanguageElement() { LanguageEnglish = "Bulgarian", LanguageNative = "български", LanguageSubtag= "bg"},
+            new LanguageElement() { LanguageEnglish = "Bengali", LanguageNative = "বাংলা", LanguageSubtag= "bn"},
+            new LanguageElement() { LanguageEnglish = "Tibetan", LanguageNative = "བོད་ཡིག", LanguageSubtag= "bo"},
+            new LanguageElement() { LanguageEnglish = "Breton", LanguageNative = "brezhoneg", LanguageSubtag= "br"},
+            new LanguageElement() { LanguageEnglish = "Bosnian", LanguageNative = "bosanski/босански", LanguageSubtag= "bs"},
+            new LanguageElement() { LanguageEnglish = "Catalan", LanguageNative = "català", LanguageSubtag= "ca"},
+            new LanguageElement() { LanguageEnglish = "Corsican", LanguageNative = "Corsu", LanguageSubtag= "co"},
+            new LanguageElement() { LanguageEnglish = "Czech", LanguageNative = "čeština", LanguageSubtag= "cs"},
+            new LanguageElement() { LanguageEnglish = "Welsh", LanguageNative = "Cymraeg", LanguageSubtag= "cy"},
+            new LanguageElement() { LanguageEnglish = "Danish", LanguageNative = "dansk", LanguageSubtag= "da"},
+            new LanguageElement() { LanguageEnglish = "German", LanguageNative = "eutsch", LanguageSubtag= "de"},
+            new LanguageElement() { LanguageEnglish = "Lower Sorbian", LanguageNative = "dolnoserbšćina", LanguageSubtag= "dsb"},
+            new LanguageElement() { LanguageEnglish = "Divehi", LanguageNative = "ދިވެހިބަސް", LanguageSubtag= "dv"},
+            new LanguageElement() { LanguageEnglish = "Greek", LanguageNative = "ελληνικά", LanguageSubtag= "el"},
+            new LanguageElement() { LanguageEnglish = "English", LanguageNative = "English", LanguageSubtag= "en"},
+            new LanguageElement() { LanguageEnglish = "Spanish", LanguageNative = "español", LanguageSubtag= "es"},
+            new LanguageElement() { LanguageEnglish = "Estonian", LanguageNative = "eesti", LanguageSubtag= "et"},
+            new LanguageElement() { LanguageEnglish = "Basque", LanguageNative = "euskara", LanguageSubtag= "eu"},
+            new LanguageElement() { LanguageEnglish = "Persian", LanguageNative = "فارسى", LanguageSubtag= "fa"},
+            new LanguageElement() { LanguageEnglish = "Finnish", LanguageNative = "suomi", LanguageSubtag= "fi"},
+            new LanguageElement() { LanguageEnglish = "Filipino", LanguageNative = "Filipino", LanguageSubtag= "fil"},
+            new LanguageElement() { LanguageEnglish = "Faroese", LanguageNative = "føroyskt", LanguageSubtag= "fo"},
+            new LanguageElement() { LanguageEnglish = "French", LanguageNative = "français", LanguageSubtag= "fr"},
+            new LanguageElement() { LanguageEnglish = "Frisian", LanguageNative = "Frysk", LanguageSubtag= "fy"},
+            new LanguageElement() { LanguageEnglish = "Irish", LanguageNative = "Gaeilge", LanguageSubtag= "ga"},
+            new LanguageElement() { LanguageEnglish = "Scottish", LanguageNative = "Gaelic Gàidhlig", LanguageSubtag= "gd"},
+            new LanguageElement() { LanguageEnglish = "Galician", LanguageNative = "galego", LanguageSubtag= "gl"},
+            new LanguageElement() { LanguageEnglish = "Alsatian", LanguageNative = "Elsässisch", LanguageSubtag= "gsw"},
+            new LanguageElement() { LanguageEnglish = "Gujarati", LanguageNative = "ગુજરાતી", LanguageSubtag= "gu"},
+            new LanguageElement() { LanguageEnglish = "Hausa", LanguageNative = "Hausa", LanguageSubtag= "ha"},
+            new LanguageElement() { LanguageEnglish = "Hebrew", LanguageNative = "עברית", LanguageSubtag= "he"},
+            new LanguageElement() { LanguageEnglish = "Hindi", LanguageNative = "हिंदी", LanguageSubtag= "hi"},
+            new LanguageElement() { LanguageEnglish = "Croatian", LanguageNative = "hrvatski", LanguageSubtag= "hr"},
+            new LanguageElement() { LanguageEnglish = "Upper Sorbian", LanguageNative = "hornjoserbšćina", LanguageSubtag= "hsb"},
+            new LanguageElement() { LanguageEnglish = "Hungarian", LanguageNative = "magyar", LanguageSubtag= "hu"},
+            new LanguageElement() { LanguageEnglish = "Armenian", LanguageNative = "Հայերեն", LanguageSubtag= "hy"},
+            new LanguageElement() { LanguageEnglish = "Indonesian", LanguageNative = "Bahasa Indonesia", LanguageSubtag= "id"},
+            new LanguageElement() { LanguageEnglish = "Igbo", LanguageNative = "Igbo", LanguageSubtag= "ig"},
+            new LanguageElement() { LanguageEnglish = "Yi", LanguageNative = "ꆈꌠꁱꂷ", LanguageSubtag= "ii"},
+            new LanguageElement() { LanguageEnglish = "Icelandic", LanguageNative = "íslenska", LanguageSubtag= "is"},
+            new LanguageElement() { LanguageEnglish = "Italian", LanguageNative = "italiano", LanguageSubtag= "it"},
+            new LanguageElement() { LanguageEnglish = "Inuktitut", LanguageNative = "Inuktitut /ᐃᓄᒃᑎᑐᑦ (ᑲᓇᑕ)", LanguageSubtag= "iu"},
+            new LanguageElement() { LanguageEnglish = "Japanese", LanguageNative = "日本語", LanguageSubtag= "ja"},
+            new LanguageElement() { LanguageEnglish = "Georgian", LanguageNative = "ქართული", LanguageSubtag= "ka"},
+            new LanguageElement() { LanguageEnglish = "Kazakh", LanguageNative = "Қазащb", LanguageSubtag= "kk"},
+            new LanguageElement() { LanguageEnglish = "Greenlandic", LanguageNative = "kalaallisut", LanguageSubtag= "kl"},
+            new LanguageElement() { LanguageEnglish = "Khmer", LanguageNative = "ខ្មែរ", LanguageSubtag= "km"},
+            new LanguageElement() { LanguageEnglish = "Kannada", LanguageNative = "ಕನ್ನಡ", LanguageSubtag= "kn"},
+            new LanguageElement() { LanguageEnglish = "Korean", LanguageNative = "한국어", LanguageSubtag= "ko"},
+            new LanguageElement() { LanguageEnglish = "Konkani", LanguageNative = "कोंकणी", LanguageSubtag= "kok"},
+            new LanguageElement() { LanguageEnglish = "Kyrgyz", LanguageNative = "Кыргыз", LanguageSubtag= "ky"},
+            new LanguageElement() { LanguageEnglish = "Luxembourgish", LanguageNative = "Lëtzebuergesch", LanguageSubtag= "lb"},
+            new LanguageElement() { LanguageEnglish = "Lao", LanguageNative = "ລາວ", LanguageSubtag= "lo"},
+            new LanguageElement() { LanguageEnglish = "Lithuanian", LanguageNative = "lietuvių", LanguageSubtag= "lt"},
+            new LanguageElement() { LanguageEnglish = "Latvian", LanguageNative = "latviešu", LanguageSubtag= "lv"},
+            new LanguageElement() { LanguageEnglish = "Maori", LanguageNative = "Reo Māori", LanguageSubtag= "mi"},
+            new LanguageElement() { LanguageEnglish = "Macedonian", LanguageNative = "македонски јазик", LanguageSubtag= "mk"},
+            new LanguageElement() { LanguageEnglish = "Malayalam", LanguageNative = "മലയാളം", LanguageSubtag= "ml"},
+            new LanguageElement() { LanguageEnglish = "Mongolian", LanguageNative = "Монгол хэл/ᠮᠤᠨᠭᠭᠤᠯ ᠬᠡᠯᠡ", LanguageSubtag= "mn"},
+            new LanguageElement() { LanguageEnglish = "Mohawk", LanguageNative = "Kanien'kéha", LanguageSubtag= "moh"},
+            new LanguageElement() { LanguageEnglish = "Marathi", LanguageNative = "मराठी", LanguageSubtag= "mr"},
+            new LanguageElement() { LanguageEnglish = "Malay", LanguageNative = "Bahasa Malaysia", LanguageSubtag= "ms"},
+            new LanguageElement() { LanguageEnglish = "Maltese", LanguageNative = "Malti", LanguageSubtag= "mt"},
+            new LanguageElement() { LanguageEnglish = "Norwegian (Bokmål)", LanguageNative = "norsk (bokmål)", LanguageSubtag= "nb"},
+            new LanguageElement() { LanguageEnglish = "Nepali", LanguageNative = "नेपाली (नेपाल)", LanguageSubtag= "ne"},
+            new LanguageElement() { LanguageEnglish = "Dutch", LanguageNative = "Nederlands", LanguageSubtag= "nl"},
+            new LanguageElement() { LanguageEnglish = "Norwegian (Nynorsk)", LanguageNative = "norsk (nynorsk)", LanguageSubtag= "nn"},
+            new LanguageElement() { LanguageEnglish = "Norwegian", LanguageNative = "norsk", LanguageSubtag= "no"},
+            new LanguageElement() { LanguageEnglish = "Sesotho", LanguageNative = "Sesotho sa Leboa", LanguageSubtag= "nso"},
+            new LanguageElement() { LanguageEnglish = "Occitan", LanguageNative = "Occitan", LanguageSubtag= "oc"},
+            new LanguageElement() { LanguageEnglish = "Oriya", LanguageNative = "ଓଡ଼ିଆ", LanguageSubtag= "or"},
+            new LanguageElement() { LanguageEnglish = "Punjabi", LanguageNative = "ਪੰਜਾਬੀ", LanguageSubtag= "pa"},
+            new LanguageElement() { LanguageEnglish = "Polish", LanguageNative = "polski", LanguageSubtag= "pl"},
+            new LanguageElement() { LanguageEnglish = "Dari", LanguageNative = "درى", LanguageSubtag= "prs"},
+            new LanguageElement() { LanguageEnglish = "Pashto", LanguageNative = "پښتو", LanguageSubtag= "ps"},
+            new LanguageElement() { LanguageEnglish = "Portuguese", LanguageNative = "Português", LanguageSubtag= "pt"},
+            new LanguageElement() { LanguageEnglish = "K'iche", LanguageNative = "K'iche", LanguageSubtag= "qut"},
+            new LanguageElement() { LanguageEnglish = "Quechua", LanguageNative = "runasimi", LanguageSubtag= "quz"},
+            new LanguageElement() { LanguageEnglish = "Romansh", LanguageNative = "Rumantsch", LanguageSubtag= "rm"},
+            new LanguageElement() { LanguageEnglish = "Romanian", LanguageNative = "română", LanguageSubtag= "ro"},
+            new LanguageElement() { LanguageEnglish = "Russian", LanguageNative = "русский", LanguageSubtag= "ru"},
+            new LanguageElement() { LanguageEnglish = "Kinyarwanda", LanguageNative = "Kinyarwanda", LanguageSubtag= "rw"},
+            new LanguageElement() { LanguageEnglish = "Sanskrit", LanguageNative = "संस्कृत", LanguageSubtag= "sa"},
+            new LanguageElement() { LanguageEnglish = "Yakut", LanguageNative = "саха", LanguageSubtag= "sah"},
+            new LanguageElement() { LanguageEnglish = "Sami (Northern)", LanguageNative = "davvisámegiella", LanguageSubtag= "se"},
+            new LanguageElement() { LanguageEnglish = "Sinhala", LanguageNative = "සිංහ", LanguageSubtag= "si"},
+            new LanguageElement() { LanguageEnglish = "Slovak", LanguageNative = "slovenčina", LanguageSubtag= "sk"},
+            new LanguageElement() { LanguageEnglish = "Slovenian", LanguageNative = "slovenski", LanguageSubtag= "sl"},
+            new LanguageElement() { LanguageEnglish = "Sami (Southern)", LanguageNative = "åarjelsaemiengiele", LanguageSubtag= "sma"},
+            new LanguageElement() { LanguageEnglish = "Sami (Lule)", LanguageNative = "julevusámegiella", LanguageSubtag= "smj"},
+            new LanguageElement() { LanguageEnglish = "Sami (Inari)", LanguageNative = "sämikielâ", LanguageSubtag= "smn"},
+            new LanguageElement() { LanguageEnglish = "Sami (Skolt)", LanguageNative = "sääm´ǩiõll", LanguageSubtag= "sms"},
+            new LanguageElement() { LanguageEnglish = "Albanian", LanguageNative = "shqipe", LanguageSubtag= "sq"},
+            new LanguageElement() { LanguageEnglish = "Serbian", LanguageNative = "srpski/српски", LanguageSubtag= "sr"},
+            new LanguageElement() { LanguageEnglish = "Swedish", LanguageNative = "svenska", LanguageSubtag= "sv"},
+            new LanguageElement() { LanguageEnglish = "Kiswahili", LanguageNative = "Kiswahili", LanguageSubtag= "sw"},
+            new LanguageElement() { LanguageEnglish = "Syriac", LanguageNative = "ܣܘܪܝܝܐ", LanguageSubtag= "syr"},
+            new LanguageElement() { LanguageEnglish = "Tamil", LanguageNative = "தமிழ்", LanguageSubtag= "ta"},
+            new LanguageElement() { LanguageEnglish = "Telugu", LanguageNative = "తెలుగు", LanguageSubtag= "te"},
+            new LanguageElement() { LanguageEnglish = "Tajik", LanguageNative = "Тоҷикӣ", LanguageSubtag= "tg"},
+            new LanguageElement() { LanguageEnglish = "Thai", LanguageNative = "ไทย", LanguageSubtag= "th"},
+            new LanguageElement() { LanguageEnglish = "Turkmen", LanguageNative = "türkmençe", LanguageSubtag= "tk"},
+            new LanguageElement() { LanguageEnglish = "Setswana", LanguageNative = "Setswana", LanguageSubtag= "tn"},
+            new LanguageElement() { LanguageEnglish = "Turkish", LanguageNative = "Türkçe", LanguageSubtag= "tr"},
+            new LanguageElement() { LanguageEnglish = "Tatar", LanguageNative = "Татар", LanguageSubtag= "tt"},
+            new LanguageElement() { LanguageEnglish = "Tamazight", LanguageNative = "Tamazight", LanguageSubtag= "tzm"},
+            new LanguageElement() { LanguageEnglish = "Uyghur", LanguageNative = "ئۇيغۇرچە", LanguageSubtag= "ug"},
+            new LanguageElement() { LanguageEnglish = "Ukrainian", LanguageNative = "українська", LanguageSubtag= "uk"},
+            new LanguageElement() { LanguageEnglish = "Urdu", LanguageNative = "اُردو", LanguageSubtag= "ur"},
+            new LanguageElement() { LanguageEnglish = "Uzbek", LanguageNative = "U'zbek/Ўзбек", LanguageSubtag= "uz"},
+            new LanguageElement() { LanguageEnglish = "Vietnamese", LanguageNative = "Tiếng Việt", LanguageSubtag= "vi"},
+            new LanguageElement() { LanguageEnglish = "Wolof", LanguageNative = "Wolof", LanguageSubtag= "wo"},
+            new LanguageElement() { LanguageEnglish = "isiXhosa", LanguageNative = "isiXhosa", LanguageSubtag= "xh"},
+            new LanguageElement() { LanguageEnglish = "Yoruba", LanguageNative = "Yoruba", LanguageSubtag= "yo"},
+            new LanguageElement() { LanguageEnglish = "Chinese", LanguageNative = "中文", LanguageSubtag= "zh"},
+            new LanguageElement() { LanguageEnglish = "isiZulu", LanguageNative = "isiZulu", LanguageSubtag= "zu"},
+            new LanguageElement() { LanguageEnglish = "Myanmar", LanguageNative = "Myanmar", LanguageSubtag= "my"}
+        };
+    }
+
+    //protected override async Task OnParametersSetAsync()
+    //{
+    //}
+
+    public async Task UpdateRTL_State()
+    {
+        await RTL_StateChanged.InvokeAsync(!RTL_State);
+    }
+
+    public class LanguageVariantElement
+    {
+        public string LanguageFamily = string.Empty;
+        public string LanguageTag = string.Empty;
+        public string LanguageVariant = string.Empty;
+    }
+
+    public class LanguageElement
+    {
+        public string LanguageEnglish = string.Empty;
+        public string LanguageNative = string.Empty;
+        public string LanguageSubtag = string.Empty;
+    }
+
+    private bool FilterFuncMain(LanguageVariantElement LanguageVariantElement, string SearchString)
+    {
+        if (string.IsNullOrWhiteSpace(SearchString))
+            return true;
+        if (LanguageVariantElement.LanguageFamily.Contains(SearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (LanguageVariantElement.LanguageTag.Contains(SearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (LanguageVariantElement.LanguageVariant.Contains(SearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        return false;
+    }
+
+    private bool FilterFuncMain(LanguageElement LanguageElement, string SearchString)
+    {
+        if (string.IsNullOrWhiteSpace(SearchString))
+            return true;
+        if (LanguageElement.LanguageEnglish.Contains(SearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (LanguageElement.LanguageNative.Contains(SearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (LanguageElement.LanguageSubtag.Contains(SearchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        return false;
+    }
+}

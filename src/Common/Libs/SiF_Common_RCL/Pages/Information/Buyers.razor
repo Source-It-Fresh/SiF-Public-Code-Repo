@@ -1,0 +1,131 @@
+﻿@*
+### ### ### ### ### ### ###
+SourceItFresh - Copyright (C) 2020
+This SiF file is licensed under v3 of the GNU Affero General Public License.
+### ### ###
+GNU AGPLv3 lets people do almost anything they want with the project, except distributing closed-source versions.
+
+Permissions of this strongest copyleft license are conditioned on:
+Making available the complete source code of works and modifications,
+ which include larger works using a licensed work, under the same license.
+Copyright and license notices must be preserved.
+Contributors provide an express grant of patent rights.
+When a modified version is used to provide a service over a network,
+ the complete source code of the modified version must be made available.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY,
+ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+### ### ###
+See LICENSE.txt for more details or visit <https://www.gnu.org/licenses/>
+### ### ### ### ### ### ###
+*@
+@page "/SiF_Common_RCL/Information/BuyersComponent"
+
+@*@layout _LayoutSite*@
+
+@using System.Net.Http
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.JSInterop
+
+@using MudBlazor
+@*@using MudBlazor.ThemeManager*@
+
+@using SiF_Common_RCL
+@using SiF_Common_RCL.Shared.Services
+@using SourceItFresh.Shared.Common
+@using SourceItFresh.Components
+@using SourceItFresh.Components.Shared
+@using System.Globalization
+
+@inject IStringLocalizer<Buyers> _StringLocalizer
+@inject LocalizationCultureService _LocalizationCultureService
+@inject NavigationManager _NavigationManager
+@*@inject IPPPsService PPPsService*@
+@*@inject IJSRuntime _JSRuntime*@
+
+@attribute [AllowAnonymous]
+@*@namespace SourceItFresh*@
+
+@{
+    //Layout = "_LayoutSite";
+    string Header = _LocalizationCultureService.GetValue("Bar_Header:Information:Consumer");
+}
+
+<PageTitle>@Header</PageTitle>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+
+<_AreaNav NavBreadcrumbs="@_navBreadcrumbs" />
+<CollapsibleCard Collapsed="false" CardHeaderIcon="fas fa-utensils" CardHeaderTitle="@Header" ShowFooter="false">
+    <CardBodyContent>
+        <MudGrid>
+            <MudItem xs="12" sm="8" md="8">
+                <MudGrid>
+                    <MudItem md="6">
+                        <MudGrid>
+                            <MudItem md="12">
+                                <MudImage Src="_content/SiF_Common_RCL/Images/baked-sml.png" Alt="Produce something fabulous" Class="rounded-lg" />
+                            </MudItem>
+                            <MudItem md="12">
+                                <MudText Typo="Typo.h4">@_StringLocalizer["Heading001"]</MudText>
+                                <MudText Typo="Typo.body2">
+                                    @_StringLocalizer["Details001.1"]<br />
+                                    @_StringLocalizer["Details001.2"]<br />
+                                    @_StringLocalizer["Details001.3"]<br />
+                                </MudText>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                    <MudItem md="6">
+                        <MudGrid>
+                            <MudItem md="12">
+                                <MudText Typo="Typo.h4">@_StringLocalizer["Heading002"]</MudText>
+                                <MudText Typo="Typo.body2">
+                                    @_StringLocalizer["Details002.1"]<br />
+                                    @_StringLocalizer["Details002.2"]<br />
+                                    @_StringLocalizer["Details002.3"]<br />
+                                </MudText>
+                            </MudItem>
+                            <MudItem md="12">
+                                <MudImage Src="_content/SiF_Common_RCL/Images/products.png" Alt="Make something fabulous" Class="rounded-lg" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                </MudGrid>
+            </MudItem>
+            <MudItem xs="12" sm="4" md="4">
+                <MudExpansionPanels>
+                    <MudExpansionPanel Text="What do you get?" MaxHeight="150">
+                        Source it Fresh is exactly that. Sourcing freshly grown, baked or prepared products from your closest chosen producer. Below, please find explanations for some of the services on offer.
+                    </MudExpansionPanel>
+                    <MudExpansionPanel Text="Entities" MaxHeight="350">
+                        Empty
+                    </MudExpansionPanel>
+                    <MudExpansionPanel Text="PlaceHolder" MaxHeight="500">
+                        ...
+                    </MudExpansionPanel>
+                </MudExpansionPanels>
+            </MudItem>
+        </MudGrid>
+    </CardBodyContent>
+</CollapsibleCard>
+
+@code
+{
+    //[CascadingParameter]
+    internal List<BreadcrumbItem> _navBreadcrumbs = new List<BreadcrumbItem>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        AreaNavBreadcrumbsClass areaNavBreadcrumbsClass = new AreaNavBreadcrumbsClass(_LocalizationCultureService);
+        _navBreadcrumbs = areaNavBreadcrumbsClass.NavBreadcrumbs;
+    }
+
+    //protected override async Task OnParametersSetAsync()
+    //{
+    //}
+}

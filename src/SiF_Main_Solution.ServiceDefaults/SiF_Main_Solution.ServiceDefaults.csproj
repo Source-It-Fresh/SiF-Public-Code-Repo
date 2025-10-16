@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsAspireSharedProject>true</IsAspireSharedProject>
+
+        <Title>$(AssemblyName)</Title>
+        <Authors>Source_It_Fresh</Authors>
+        <ApplicationIcon>favicon.ico</ApplicationIcon>
+        <PackageIcon>SiF_Logo_310x310.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Copyright>SiF - Copyleft (C) 2020 - GNU Affero General Public License v3.0</Copyright>
+        <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://www.sourceitfresh.com/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Source-It-Fresh/</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="favicon.ico" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+        <None Include="..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+
+        <PackageReference Include="Microsoft.Extensions.Http.Resilience" Version="9.8.0" />
+        <PackageReference Include="Microsoft.Extensions.ServiceDiscovery" Version="9.4.1" />
+        <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.12.0" />
+        <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.12.0" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.12.0" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.12.0" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.Runtime" Version="1.12.0" />
+        <PackageReference Include="SonarAnalyzer.CSharp" Version="10.15.0.120848">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+</Project>
